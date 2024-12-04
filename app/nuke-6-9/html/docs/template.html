@@ -1,0 +1,265 @@
+<HTML
+><HEAD
+><TITLE
+>Modifying the HTML template</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Customising PHP-Nuke themes "
+HREF="customization.html"><LINK
+REL="PREVIOUS"
+TITLE="Structure of a PHP-Nuke theme"
+HREF="topic-structure.html"><LINK
+REL="NEXT"
+TITLE="Theme construction: the rules to follow "
+HREF="theme-rules.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="topic-structure.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 7. Customising PHP-Nuke themes</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="theme-rules.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="TEMPLATE"
+></A
+>7.2. Modifying the HTML template</H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1706"
+></A
+>7.2.1. Example creation of HTML file to include in the theme</H2
+><P
+>We will not analyse the HTML syntax of all the files, I think it's better that you understand the principles that are used and that you learn a few tricks that allow you to use a visual editor such as DreamWeaver. </P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Example:</DT
+><DD
+><P
+>The block is created in this way: </P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;table border="0 "cellpadding="1" cellspacing="0 "bgcolor="#000000" width="150 "&#62;&#60;tr&#62;&#60;td&#62;
+&#60;table border="0 "cellpadding="3" cellspacing="0 "bgcolor="#dedebb" width="100% "&#62;&#60;tr&#62;&#60; td align="left" &#62;
+&#60;font class="content "color="#363636" &#62;&#60;b&#62; $$title &#60;/b &#62;&#60;/font&#62;
+&#60;/td&#62;&#60;/tr&#62;&#60;/table&#62;&#60;/td&#62;&#60;/tr&#62;&#60;/table&#62;
+&#60;table border="0 "cellpadding="0" cellspacing="0 "bgcolor="#ffffff" width="150 " &#62;
+&#60;tr valign="top "&#62;&#60;td bgcolor="#ffffff"&#62;
+$content
+&#60;/td&#62;&#60;/tr&#62;&#60;/table&#62;
+&#60; br &#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></DD
+></DL
+></DIV
+><P
+>As you see, we create a table of fixed width (in our case 150) and we assign it some colours (for the background etc...). We also assign two variables ($title and $content) that will, once included in theme.php, load the title and the content of the block. It would have been useful, for a code cleaning reason, to define background values in the css tables instead.</P
+><P
+>To have all the necessary cases to get the conclusions of this chapter and to write a pair of rules, we have to analyse a very simple module that includes a case we have still not mentioned, the images management:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;/td&#62;&#60;td&#62;&#60;img src="themes/NukeNews/images/pixel.gif "width="15" height="1 "border="0" stop = ""&#62;
+&#60;/td&#62;&#60;td valign="top" width="100%"&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>The analysed code is a spacer that adds a space of 15 pixels, but where do we go to recover the image? Which path do we have to assign it? Remember that the theme.php file is included in root, so the image path must start from root to the indicated theme. The path to the image "pixel.gif" is "themes/NukeNews/images/pixel.gif" </P
+><DIV
+CLASS="CAUTION"
+><P
+></P
+><TABLE
+CLASS="CAUTION"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/caution.gif"
+HSPACE="5"
+ALT="Caution"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>Attention!</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>When you add images in an automatic way by using a visual editor,  the path will be only images/image.gif, and you will have to correct it by hand adding the correct path. </P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>Another device is to assign, in theme.php, is a variable to the name of the theme to make it independent from eventual changes of the folder name. So for variable $nameoftheme = " the NukeNews " the image route syntax will be: </P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;img src="themes/$nameoftheme/images/pixel.gif"&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="topic-structure.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="theme-rules.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Structure of a PHP-Nuke theme</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="customization.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Theme construction: the rules to follow</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

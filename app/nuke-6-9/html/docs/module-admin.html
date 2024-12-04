@@ -1,0 +1,642 @@
+<HTML
+><HEAD
+><TITLE
+>Module creation, administrator part</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Creating modules"
+HREF="creating-modules.html"><LINK
+REL="PREVIOUS"
+TITLE="Module creation, the public part"
+HREF="module-public.html"><LINK
+REL="NEXT"
+TITLE="Some security precautions "
+HREF="security.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="module-public.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 9. Creating modules</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="security.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="MODULE-ADMIN"
+></A
+>9.4. Module creation, administrator part</H1
+><P
+>It's time to create the administration part of the module. In this very simple module the only function that will work on the DB will be the one in which we can modify the text of one of the three languages that we have created. First of all, we have to create the files to insert in the folders:</P
+><P
+></P
+><UL
+><LI
+><P
+>admin/case</P
+></LI
+><LI
+><P
+>admin/links</P
+></LI
+><LI
+><P
+>admin/modules </P
+></LI
+></UL
+><P
+>It's important to remember how much we have just said in <A
+HREF="directory-structure.html"
+>Section 6.1</A
+>:</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Admin:</DT
+><DD
+><P
+>contains 4 subdirectories (links, language, case, modules) that manage the various administration modules. The folder that holds the files is modules/admin/ .</P
+></DD
+></DL
+></DIV
+><P
+>The folder admin/links instead says that the admin module must recall and position one language in admin for that determined module.</P
+><P
+>Example (Administration for the FAQ module):</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>if (($radminsuper==1) OR ($radminfaq==1)) {
+adminmenu("admin.php?op=FaqAdmin ", "" _FAQ." ", "faq.gif");
+}</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>This module:</P
+><P
+></P
+><UL
+><LI
+><P
+>Verifies the administration rights (This module can be set up so it can be viewed by the superadmin or an admin)</P
+></LI
+><LI
+><P
+>It passes a "CASE" (op=FaqAdmin) that indicates to the admin.php file (that includes all the admin modules) the module to call, associates a value in order to translate the term "FAQ" and associates an image for the visual administration (faq.gif).</P
+></LI
+></UL
+><P
+>The folder admin/case instead serves to define the module to be used in each specified case . This is important when, using the same admin file, we need to perform more operations using a CASE statement:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>case1 = insert
+case2 = cancel
+etc...</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>In fact it says which module to call in order to verify the CASE condition. For example, in the FAQ module there are lots of cases, here are the last 2:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>case "FaqAdmin":
+case "FaqCatGo":
+include ("admin/modules/adminfaq.php");
+break;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>Both of the CASE statements call the adminfaq.php file, but they are used for different operations. The first one calls the file with the default scheme, the second, on the other hand, gives its O:K. to insert a new category. </P
+><P
+>This happens through a string like "admin.php?op=FaqAdmin" in the first case and "admin.php?op=FaqCatGo" in the second.</P
+><P
+>We will now create, in the following order, the files:</P
+><P
+></P
+><UL
+><LI
+><P
+>admin/modules/topolino.php</P
+></LI
+><LI
+><P
+>admin/case/case.topolino.php</P
+></LI
+><LI
+><P
+>admin/links/links.topolino.php </P
+></LI
+></UL
+><P
+>In order to create the file inside the modules folder (modules/topolino.php) we must have a structure of this type:</P
+><P
+></P
+><UL
+><LI
+><P
+>Starting part of the file (Similar for all the modules)</P
+></LI
+><LI
+><P
+>Definition of the necessary functions.</P
+></LI
+><LI
+><P
+>Definition of the necessary cases in order to call the various functions for the admin module.</P
+></LI
+><LI
+><P
+>Final part of the file.</P
+></LI
+></UL
+><P
+>The syntax for the starting part of the file is the following:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;?php
+if (!eregi("admin.php ", { die ("Access Denied"); }
+$result = sql_query("select radminsuper, admlanguage from "$prefix."_authors to where aid=' $aid '", $dbi);
+list($radminsuper, $admlanguage) = sql_fetch_row($result, $dbi);
+if ($radminsuper==1) {</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>This part of the file controls the administration rights for whoever calls it, a control on which language to use and (not in this module) a control on the administrator's rights. An administrator could have only partial rights of administration on modules or some modules can be managed only by a superadmin. In our specific case the module can be managed only by the superadmin because the control is only:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>if ($radminsuper==1)</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>In case there are some specific rights (for example in the reviews module) the rights to control would have been:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>if (($radminreviews==1) OR ($radminsuper==1))</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>Activating the rights on two levels on new modules indeed isn't simple, you must specify in the nuke_authors table a new field that designates the rights, then modify admin/modules/authors.php adding the checkbox for the rights of the new module and modify the corresponding UPDATE queries.</P
+><P
+>Let's go back to our module, the initial part of the syntax is obligatorily </P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;?php
+if (!eregi("admin.php ", { die ("Access Denied"); }
+$result = sql_query("select radminsuper from "$prefix."_authors to where aid=' $aid '", $dbi);
+list($radminsuper) = sql_fetch_row($result, $dbi);
+if ($radminsuper==1) {
+and that end is instead:
+} else {
+echo "Access Denied";
+}
+&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>All that we find in the middle, are the management functions and the cases that must be checked, which we will now go on to construct. There are a couple of rules to follow in order to construct the admin functions:</P
+><P
+></P
+><UL
+><LI
+><P
+>We must include a header at the beginning of the function and a footer at the end:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>include("header.php");
+include("footer.php");</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></LI
+></UL
+><P
+>We have to include the GraphicAdmin(); function immediately after the header. It will display the navigation panel that leads to all the other admin links. The functions we'll now go to create are:</P
+><P
+></P
+><UL
+><LI
+><P
+>Display of the database records</P
+></LI
+><LI
+><P
+>Selection of the record and its insertion in a modifiable text field</P
+></LI
+><LI
+><P
+>Modification of the record through insertion in the database of the value modified in the text field.</P
+></LI
+></UL
+><P
+>Here is the code of the function which accomplishes the record selection:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>function mousedisplay() {
+global $admin, $bgcolor2, $prefix, $dbi, $multilingual;
+include ("header.php");
+GraphicAdmin();
+Opentable();
+$resultpersons = sql_query("SELECT idperson, nameperson FROM ".$prefix."_topolino", $dbi);
+for ($m=0; $m &#60; sql_num_rows($resultpersons, $dbi); $m++)
+{
+list($idperson, $nameperson) = sql_fetch_row($resultpersons, $dbi);
+echo "$idperson - $nameperson &#60; to href=\"admin.php=mouseselect &#38; idtopo=$idperson \" &#62; Select mouse &#60;/to &#62; &#60; br &#62; ";
+}
+closetable();
+include("footer.php");
+}</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>The next function to implement is the one that corresponds to the selection of one of the three records:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>function mouseselect() {
+global $admin, $bgcolor2, $prefix, $dbi, $multilingual, $idtopo;
+include ("header.php");
+GraphicAdmin();
+Opentable();
+$resultpersons = sql_query("SELECT idperson, nameperson FROM "$prefix."_topolino to where idperson=' $idtopo '", $dbi);
+for ($m=0; $m &#60; sql_num_rows($resultpersons, $dbi); $m++)
+{
+list($idperson, $nameperson) = sql_fetch_row($resultpersons, $dbi);
+echo "&#60; form action=\"admin.php\" method=\"post\"&#62;";
+echo "&#60; input type=\"text\" name=\"nameperson \ "size=\"20\" maxlength=\"20 \ "value=\"$personname \" &#62;&#60; br &#62;&#60; br &#62; ";
+echo "&#60; input type=\"hidden\" name=\"idperson\"value=\"$idtopo\" &#62; ";
+echo "&#60; input type=\"hidden\" name=\"op \ "value=\"mousemodify\" &#62; ";
+echo "&#60; input type=\"submit\" value=\""._ADDTOPO."\" &#62; ";
+echo "&#60;/form &#62;";
+}
+closetable();
+include("footer.php");
+}</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>It is very important to take note of some things:</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>The variables that we insert will be checked, in fact you can see the variable "$idtopo" was inserted between the used variables. </P
+></LI
+><LI
+><P
+>The value checked in the CASE statements is passed to us through a hidden form field</P
+></LI
+></OL
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>(&#60; input type=\"hidden\"name=\"op\"value=\"mousemodify\"&#62;).</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>The last function we consider is the one that corresponds to the update of the values in the database (Here too we added the two variables that we were interested in ($nameperson, $idperson): </P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>function mousemodify() {
+global $admin, $bgcolor2, $prefix, $dbi, $multilingual, $idtopo, $nameperson, $idperson;
+include ("header.php");
+GraphicAdmin();
+Opentable();
+sql_query("update "$prefix."_topolino set nameperson=' $nameperson' where idperson=$idperson", $dbi);
+echo"OK ";
+die(mysql_error());
+closetable();
+include("footer.php");
+}</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>The last two elements to insert are the definitions for the CASE statements (that is, which function to call according to the variable passed to the module) and the closing of the file. </P
+><P
+>Definition of the cases:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>switch($op) {
+case "":
+mousedisplay();
+break;
+case "topolino":
+mousedisplay();
+break;
+case "mouseselect":
+mouseselect();
+break;
+case "mousemodify":
+mousemodification();
+break;
+}
+Closing of the file:
+} else {
+echo "Access Denied";
+}
+&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>The cases definition page is very easy to construct, it gathers the cases that are included in the file admin/modules/topolino.php and puts them in the file admin/case/case.topolino.php  </P
+><P
+>This is the syntax:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;?php
+if (!eregi("admin.php ", { die ("Access Denied"); }
+switch($op) {
+case "topolino":
+include("admin/modules/topolino.php");
+break;
+case "mouseselect":
+include("admin/modules/topolino.php");
+break;
+case "mousemodify":
+include("admin/modules/topolino.php");
+break;
+}
+&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>The last two things we have to make are the compilation of the file admin/links/link.topolino.php and the creation of a language module: Compilation of the file link.topolino.php</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;?php
+if ($radminsuper==1) {
+adminmenu("admin.php?op=topolino ", "" _EDITTOPOLINO." ", "topolino.gif");
+}
+&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>Where: admin.php?op=topolino defines which module must be called, " _EDITTOPOLINO" is the term to translate (it must be compiled in admin/language). For the modification of the language module I refer you to the previous paragraph with one single note. The language file of the admin section is common for all (admin/language), the relative languages must be added to the end of those that already exist. Just another thing, the syntax of this example is not perfect, its beyond the scope of this to make it work perfectly but it does illustrate the operation of the module (Which you will find available for download at <A
+HREF="http://www.spaghettibrain.com"
+TARGET="_top"
+>www.spaghettibrain.com</A
+> so you will be able to study it).</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="module-public.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="security.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Module creation, the public part</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="creating-modules.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Some security precautions</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

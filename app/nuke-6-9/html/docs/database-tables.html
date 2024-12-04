@@ -1,0 +1,566 @@
+<HTML
+><HEAD
+><TITLE
+>The database tables </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Programmer's tools "
+HREF="tools.html"><LINK
+REL="PREVIOUS"
+TITLE="Programmer's tools "
+HREF="tools.html"><LINK
+REL="NEXT"
+TITLE="The syntax of SQL code"
+HREF="sql-syntax.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="tools.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 11. Programmer's tools</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="sql-syntax.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="DATABASE-TABLES"
+></A
+>11.1. The database tables</H1
+><P
+>Here are the tables that comprise the PHP-Nuke database and what they serve for:</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>nuke_access:</DT
+><DD
+><P
+>Defines various users profiles.</P
+></DD
+><DT
+>nuke_authors:</DT
+><DD
+><P
+>Defines the administrators and their access levels.</P
+></DD
+><DT
+>nuke_autonews:</DT
+><DD
+><P
+>Manages automatic news.</P
+></DD
+><DT
+>nuke_banlist:</DT
+><DD
+><P
+>Manages banned users (those excluded from viewing the site).</P
+></DD
+><DT
+>nuke_banner:</DT
+><DD
+><P
+>Manages banner campaigns, impressions and clicks.</P
+></DD
+><DT
+>nuke_bannerclient:</DT
+><DD
+><P
+>Manages the banner campaign clients.</P
+></DD
+><DT
+>nuke_bbtopics:</DT
+><DD
+><P
+>Manages the BBCode.</P
+></DD
+><DT
+>nuke_blocks:</DT
+><DD
+><P
+>List of created blocks.</P
+></DD
+><DT
+>nuke_catagories:</DT
+><DD
+><P
+>List of the categories.</P
+></DD
+><DT
+>nuke_comments:</DT
+><DD
+><P
+>Manages comments and answers.</P
+></DD
+><DT
+>nuke_config:</DT
+><DD
+><P
+>Manages some configurations like the possibility to mail in HTML etc.</P
+></DD
+><DT
+>nuke_counter:</DT
+><DD
+><P
+>Manages statistics.</P
+></DD
+><DT
+>nuke_disallow:</DT
+><DD
+><P
+>Blocks a user.</P
+></DD
+><DT
+>nuke_downloads_categories:</DT
+><DD
+><P
+>Manages categories and subcategories for the download area.</P
+></DD
+><DT
+>nuke_downloads_downloads:</DT
+><DD
+><P
+>Manages the files present in the download area.</P
+></DD
+><DT
+>nuke_downloads_editorials:</DT
+><DD
+><P
+>Manages the comments on the files.</P
+></DD
+><DT
+>nuke_downloads_modrequest:</DT
+><DD
+><P
+>Manages the reporting of broken links.</P
+></DD
+><DT
+>nuke_downloads_newdownload:</DT
+><DD
+><P
+>Manages the insertion of files from third parties.</P
+></DD
+><DT
+>nuke_downloads_moddata:</DT
+><DD
+><P
+>Manages voting on files.</P
+></DD
+><DT
+>nuke_encyclopedya:</DT
+><DD
+><P
+>Lists the various encyclopedias.</P
+></DD
+><DT
+>nuke_encyclopedia_text:</DT
+><DD
+><P
+>Lists encyclopedia entries.</P
+></DD
+><DT
+>nuke_ephem</DT
+><DD
+><P
+>Manages recurrent events.</P
+></DD
+><DT
+>nuke_faqanswer:</DT
+><DD
+><P
+>Archives the FAQ answers.</P
+></DD
+><DT
+>nuke_faqcategories:</DT
+><DD
+><P
+>Manages the categories in which the FAQ are subdivided.</P
+></DD
+><DT
+>nuke_forum_access:</DT
+><DD
+><P
+>Records the last access of the users.</P
+></DD
+><DT
+>nuke_forum_mods:</DT
+><DD
+><P
+>Defines moderators of the forums.</P
+></DD
+><DT
+>nuke_forums:</DT
+><DD
+><P
+>Defines the active forums.</P
+></DD
+><DT
+>nuke_forumtopics:</DT
+><DD
+><P
+>Defines forum topics.</P
+></DD
+><DT
+>nuke_headlines:</DT
+><DD
+><P
+>Defines the sources from which to take news with the blocks.</P
+></DD
+><DT
+>nuke_links_categories:</DT
+><DD
+><P
+>Defines the categories in which the links are subdivided. </P
+></DD
+><DT
+>nuke_links_editorials:</DT
+><DD
+><P
+>Manages the judgments on the links.</P
+></DD
+><DT
+>nuke_links_links:</DT
+><DD
+><P
+>Archives the links.</P
+></DD
+><DT
+>nuke_links_modrequest:</DT
+><DD
+><P
+>Archives the messages related to the link (broken link etc.).</P
+></DD
+><DT
+>nuke_links_newlink:</DT
+><DD
+><P
+>Archives links suggested for insertion.</P
+></DD
+><DT
+>nuke_links_votedata:</DT
+><DD
+><P
+>Archives link votes.</P
+></DD
+><DT
+>nuke_main:</DT
+><DD
+><P
+>Defines which is the main module that must be included in index.php.</P
+></DD
+><DT
+>nuke_message:</DT
+><DD
+><P
+>Manages the home page messages.</P
+></DD
+><DT
+>nuke_modules:</DT
+><DD
+><P
+>Lists and manages the installed modules.</P
+></DD
+><DT
+>nuke_pages:</DT
+><DD
+><P
+> </P
+></DD
+><DT
+>nuke_pages_categories:</DT
+><DD
+><P
+> </P
+></DD
+><DT
+>nuke_poll_check:</DT
+><DD
+><P
+>List of the IP addresses that have voted in last 24 hours.</P
+></DD
+><DT
+>nuke_poll_data:</DT
+><DD
+><P
+>List of survey answers.</P
+></DD
+><DT
+>nuke_poll_desc:</DT
+><DD
+><P
+>List of present and past surveys.</P
+></DD
+><DT
+>nuke_pollcomments:</DT
+><DD
+><P
+>Comment to the survey.</P
+></DD
+><DT
+>nuke_posts:</DT
+><DD
+><P
+>Main titles of forum posts</P
+></DD
+><DT
+>nuke_posts_text:</DT
+><DD
+><P
+> </P
+></DD
+><DT
+>nuke_priv_msgs:</DT
+><DD
+><P
+>Manages the module private messages.</P
+></DD
+><DT
+>nuke_queue:</DT
+><DD
+><P
+>Lists the texts waiting for publication</P
+></DD
+><DT
+>nuke_quotes:</DT
+><DD
+><P
+> </P
+></DD
+><DT
+>nuke_ranks:</DT
+><DD
+><P
+>Registers the votes for the news</P
+></DD
+><DT
+>nuke_referer:</DT
+><DD
+><P
+>Lists where the last x rows come from</P
+></DD
+><DT
+>nuke_related:</DT
+><DD
+><P
+>Associates eventual links to the topics.</P
+></DD
+><DT
+>nuke_reviews:</DT
+><DD
+><P
+> </P
+></DD
+><DT
+>nuke_reviews_add:</DT
+><DD
+><P
+> </P
+></DD
+><DT
+>nuke_reviews_comments:</DT
+><DD
+><P
+>Comments to the reviews.</P
+></DD
+><DT
+>nuke_reviews_main:</DT
+><DD
+><P
+>main table of the reviews.</P
+></DD
+><DT
+>nuke_seccont:</DT
+><DD
+><P
+>Lists the section texts.</P
+></DD
+><DT
+>nuke_sections:</DT
+><DD
+><P
+>Lists the active sections.</P
+></DD
+><DT
+>nuke_session:</DT
+><DD
+><P
+>Lists the active sessions.</P
+></DD
+><DT
+>nuke_smiles:</DT
+><DD
+><P
+>Lists the supported emoticons.</P
+></DD
+><DT
+>nuke_stats_date:</DT
+><DD
+><P
+>Statistics module.</P
+></DD
+><DT
+>nuke_stats_hour:</DT
+><DD
+><P
+>Statistics module...</P
+></DD
+><DT
+>nuke_stats_month:</DT
+><DD
+><P
+>Statistics module.</P
+></DD
+><DT
+>nuke_stats_year:</DT
+><DD
+><P
+>Statistics module.</P
+></DD
+><DT
+>nuke_stories:</DT
+><DD
+><P
+>Texts of the news.</P
+></DD
+><DT
+>nuke_stories_cat:</DT
+><DD
+><P
+>Categories of the news.</P
+></DD
+><DT
+>nuke_topics:</DT
+><DD
+><P
+>List of topics.</P
+></DD
+><DT
+>nuke_users:</DT
+><DD
+><P
+>List of users.</P
+></DD
+><DT
+>nuke_words:</DT
+><DD
+><P
+>Words to censure.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="tools.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="sql-syntax.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Programmer's tools</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tools.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>The syntax of SQL code</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

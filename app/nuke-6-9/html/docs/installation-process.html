@@ -1,0 +1,361 @@
+<HTML
+><HEAD
+><TITLE
+>Installation process</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="How to install PHP-Nuke"
+HREF="installation.html"><LINK
+REL="PREVIOUS"
+TITLE="How to install PHP-Nuke"
+HREF="installation.html"><LINK
+REL="NEXT"
+TITLE="How to install PHP-Nuke through PHPMyadmin"
+HREF="phpmyadmin.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="installation.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 5. How to install PHP-Nuke</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="phpmyadmin.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="INSTALLATION-PROCESS"
+></A
+>5.1. Installation process</H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1193"
+></A
+>5.1.1. Download<A
+NAME="DOWNLOAD"
+></A
+></H2
+><P
+>Well... there is little to say here, it suffices to go to a site that holds the files and download them. There is only a small remark to make: if you use Windows and download a version comprised of a file with the ending tar.gz, do not worry, your <A
+HREF="http://www.winzip.com"
+TARGET="_top"
+>Winzip</A
+> supports it without problems. Once downloaded, extract it and "throw" all its contents in a folder you created for this purpose and you call "Nuke5" or whatever ( sites from which you can download PHP-Nuke are: <A
+HREF="http://phpnuke.org"
+TARGET="_top"
+>phpnuke.org</A
+>, <A
+HREF="http://www.spaghettibrain.com"
+TARGET="_top"
+>www.spaghettibrain.com</A
+> etc.).</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="UPLOAD"
+></A
+>5.1.2. Upload through FTP</H2
+><P
+>Well, now what remains is just to upload the files to the interior of our main server directory that resides on our provider. </P
+><DIV
+CLASS="CAUTION"
+><P
+></P
+><TABLE
+CLASS="CAUTION"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/caution.gif"
+HSPACE="5"
+ALT="Caution"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>Attention!</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>It is highly recommended, prior to any installation steps, to verify that your provider supports <A
+HREF="http://www.php.net"
+TARGET="_top"
+>PHP</A
+> and  <A
+HREF="http://www.mysql.org"
+TARGET="_top"
+>MySQL</A
+>.</P
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="TIP"
+><P
+></P
+><TABLE
+CLASS="TIP"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/tip.gif"
+HSPACE="5"
+ALT="Tip"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>Tip</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Don't upload all extracted  files. After extraction, you will find a structure similar to the one depicted in <A
+HREF="installation-process.html#FIG-FILE-STRUCTURE"
+>Figure 5-1</A
+>.
+
+<DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-FILE-STRUCTURE"
+></A
+><P
+><B
+>Figure 5-1.    PHP-Nuke 6.0 file structure
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/snapshot12.png"><DIV
+CLASS="CAPTION"
+><P
+>PHP-Nuke 6.0 file structure</P
+></DIV
+></P
+></DIV
+></DIV
+>
+
+You don't need to upload all the files from the folder, in the main directory of your web presence you will only need to upload the contents of the html folder (so just do a doubleclick on the html folder and upload everything that is inside it).</P
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="PERMISSIONS"
+></A
+>5.1.3. Formulation of the file permissions</H2
+><DIV
+CLASS="IMPORTANT"
+><P
+></P
+><TABLE
+CLASS="IMPORTANT"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/important.gif"
+HSPACE="5"
+ALT="Important"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>Important</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This process only really applies if your PHP-Nuke will be installed on a Linux/Unix server, if instead you will install it on Windows operating systems you don't have to do anything.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>Setting up permissions on files serves the purpose of having them execute only certain operations (write, execute etc.) when called. Setting them up correctly is important for PHP-Nuke to operate in its full functionality. </P
+><P
+>The permissions to give are the following (for the base permissions, see <A
+HREF="permissions2.html"
+>Section 10.1</A
+> in the context of security):</P
+><P
+></P
+><UL
+><LI
+><P
+>Files: 666 </P
+></LI
+><LI
+><P
+>Directories: 777</P
+></LI
+></UL
+><P
+>With <A
+HREF="http://www.ftpplanet.com/ftpresources/ftpmain.htm"
+TARGET="_top"
+>WS_FTP</A
+> you must select the files or folders on which you want to impose the permissions and, with the right mouse key, to select the option CHMOD.</P
+><P
+>Once you set up the permissions on all folders and all files, this procedure will cost you some time, but it is very important to carry out. Moreover, you will have to do it every time you insert a new file or module to your PHP-Nuke. </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="installation.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="phpmyadmin.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>How to install PHP-Nuke</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="installation.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>How to install PHP-Nuke through PHPMyadmin</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

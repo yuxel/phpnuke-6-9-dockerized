@@ -1,0 +1,703 @@
+<HTML
+><HEAD
+><TITLE
+>PHP-Nuke: Management and Programming</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="NEXT"
+TITLE="Terms of distribution"
+HREF="terms.html"><META
+NAME="KEYWORD"
+CONTENT="PHP-Nuke"><META
+NAME="KEYWORD"
+CONTENT="programming"><META
+NAME="KEYWORD"
+CONTENT="management"><META
+NAME="KEYWORD"
+CONTENT="tutorial"><META
+NAME="KEYWORD"
+CONTENT="PHP"><META
+NAME="KEYWORD"
+CONTENT="MySQL"><META
+NAME="KEYWORD"
+CONTENT="Linux"><META
+NAME="KEYWORD"
+CONTENT="structure"><META
+NAME="KEYWORD"
+CONTENT="news"><META
+NAME="KEYWORD"
+CONTENT="content management system"><META
+NAME="KEYWORD"
+CONTENT="CMS"><META
+NAME="KEYWORD"
+CONTENT="UNIX"><META
+NAME="KEYWORD"
+CONTENT="nuke"><META
+NAME="KEYWORD"
+CONTENT="modules"><META
+NAME="KEYWORD"
+CONTENT="blocks"><META
+NAME="KEYWORD"
+CONTENT="topics"><META
+NAME="KEYWORD"
+CONTENT="themes"><META
+NAME="KEYWORD"
+CONTENT="architecture"><META
+NAME="KEYWORD"
+CONTENT="howto"><META
+NAME="KEYWORD"
+CONTENT="guide"><META
+NAME="KEYWORD"
+CONTENT="content"><META
+NAME="KEYWORD"
+CONTENT="download"><META
+NAME="KEYWORD"
+CONTENT="book"></HEAD
+><BODY
+CLASS="BOOK"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="AEN1"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+></A
+>PHP-Nuke: Management and Programming</H1
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN5"
+></A
+>Claudio Erba</H3
+><DIV
+CLASS="AFFILIATION"
+><SPAN
+CLASS="JOBTITLE"
+>Webmaster<BR></SPAN
+><SPAN
+CLASS="ORGNAME"
+>www.spaghettibrain.com<BR></SPAN
+></DIV
+><P
+CLASS="OTHERCREDIT"
+><B
+>Chris Karakas - </B
+><SPAN
+CLASS="CONTRIB"
+>Conversion from LyX to DocBook SGML, Index generation</SPAN
+></P
+><P
+CLASS="OTHERCREDIT"
+><B
+>Andre Purfield - </B
+><SPAN
+CLASS="CONTRIB"
+>Translation from italian and translation project coordination</SPAN
+></P
+><P
+CLASS="OTHERCREDIT"
+><B
+>Fortunato Matarazzo - </B
+><SPAN
+CLASS="CONTRIB"
+>Translation from italian: chapters 7, 8 and 9</SPAN
+></P
+><P
+CLASS="OTHERCREDIT"
+><B
+>Chris Karakas - </B
+><SPAN
+CLASS="CONTRIB"
+>Translation from italian: chapters 1-6, 10-11</SPAN
+></P
+><DIV
+CLASS="REVHISTORY"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+><TR
+><TH
+ALIGN="LEFT"
+VALIGN="TOP"
+COLSPAN="3"
+><B
+>Revision History</B
+></TH
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision 1.2</TD
+><TD
+ALIGN="LEFT"
+>2003-05-29</TD
+><TD
+ALIGN="LEFT"
+>Revised by: CK</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>New logo, CSS stylesheet, HTML validation, footer icons. Incorporated LDP reviewer's comments. Created Aknowledgements and Availability of sources sections.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision 1.1</TD
+><TD
+ALIGN="LEFT"
+>2003-02-13</TD
+><TD
+ALIGN="LEFT"
+>Revised by: AP</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>Cleaned up the wording and a few typos.</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+>Revision 1.0</TD
+><TD
+ALIGN="LEFT"
+>2003-01-09</TD
+><TD
+ALIGN="LEFT"
+>Revised by: CK</TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+COLSPAN="3"
+>First complete version.</TD
+></TR
+></TABLE
+></DIV
+><DIV
+><DIV
+CLASS="ABSTRACT"
+><A
+NAME="AEN54"
+></A
+><P
+></P
+><P
+>   <DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/logo1.png"></P
+></DIV
+></P
+><P
+>   <DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/logo2.png"></P
+></DIV
+></P
+><P
+>There has always been the necessity to have a definitive guide on PHP-Nuke. This tutorial describes the installation and structure of PHP-Nuke and the details of customizing the front end to suit the users' needs. The architecture of PHP-Nuke, with its modules, blocks, topics and themes is presented in detail, as well as the interplay of PHP and MySQL for the creation of a mighty content management system (CMS).It also delves into more advanced issues, like the programming of PHP-Nuke blocks and modules.</P
+><P
+></P
+></DIV
+></DIV
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>1. <A
+HREF="terms.html"
+>Terms of distribution</A
+></DT
+><DD
+><DL
+><DT
+>1.1. <A
+HREF="disclaimer.html"
+>Disclaimer</A
+></DT
+><DT
+>1.2. <A
+HREF="formats.html"
+>Formats</A
+></DT
+><DT
+>1.3. <A
+HREF="licence.html"
+>Licence</A
+></DT
+><DT
+>1.4. <A
+HREF="availability-of-sources.html"
+>Availability of sources</A
+></DT
+><DT
+>1.5. <A
+HREF="aknowledgements.html"
+>Aknowledgements</A
+></DT
+></DL
+></DD
+><DT
+>2. <A
+HREF="introduction.html"
+>Introduction to PHP-Nuke</A
+></DT
+><DD
+><DL
+><DT
+>2.1. <A
+HREF="purpose.html"
+>Purpose</A
+></DT
+><DT
+>2.2. <A
+HREF="whatis-phpnuke.html"
+>What Is PHP-Nuke</A
+></DT
+><DT
+>2.3. <A
+HREF="history.html"
+>Short history of PHP-Nuke</A
+></DT
+><DT
+>2.4. <A
+HREF="communities.html"
+>The Nuke Communities</A
+></DT
+><DT
+>2.5. <A
+HREF="whyphpnuke.html"
+>Why use PHP-Nuke and not static HTML pages</A
+></DT
+></DL
+></DD
+><DT
+>3. <A
+HREF="frontend.html"
+>Front end structure: user view</A
+></DT
+><DD
+><DL
+><DT
+>3.1. <A
+HREF="preinstalled-modules.html"
+>The preinstalled modules</A
+></DT
+><DT
+>3.2. <A
+HREF="non-installed-modules.html"
+>Other non-installed modules</A
+></DT
+><DT
+>3.3. <A
+HREF="preinstalled-blocks.html"
+>The preinstalled blocks</A
+></DT
+></DL
+></DD
+><DT
+>4. <A
+HREF="backend.html"
+>Back end structure: administrator view</A
+></DT
+><DD
+><DL
+><DT
+>4.1. <A
+HREF="administration-functions.html"
+>The administration functions</A
+></DT
+><DT
+>4.2. <A
+HREF="preferences.html"
+>The Preferences Page</A
+></DT
+></DL
+></DD
+><DT
+>5. <A
+HREF="installation.html"
+>How to install PHP-Nuke</A
+></DT
+><DD
+><DL
+><DT
+>5.1. <A
+HREF="installation-process.html"
+>Installation process</A
+></DT
+><DT
+>5.2. <A
+HREF="phpmyadmin.html"
+>How to install PHP-Nuke through PHPMyadmin</A
+></DT
+></DL
+></DD
+><DT
+>6. <A
+HREF="architecture.html"
+>Architecture and structure</A
+></DT
+><DD
+><DL
+><DT
+>6.1. <A
+HREF="directory-structure.html"
+>Directory structure</A
+></DT
+><DT
+>6.2. <A
+HREF="main-page-management.html"
+>Main page management</A
+></DT
+><DT
+>6.3. <A
+HREF="module-management.html"
+>Module management</A
+></DT
+><DT
+>6.4. <A
+HREF="admin-management.html"
+>Administration management</A
+></DT
+></DL
+></DD
+><DT
+>7. <A
+HREF="customization.html"
+>Customising PHP-Nuke themes</A
+></DT
+><DD
+><DL
+><DT
+>7.1. <A
+HREF="topic-structure.html"
+>Structure of a PHP-Nuke theme</A
+></DT
+><DT
+>7.2. <A
+HREF="template.html"
+>Modifying the HTML template</A
+></DT
+><DT
+>7.3. <A
+HREF="theme-rules.html"
+>Theme construction: the rules to follow</A
+></DT
+></DL
+></DD
+><DT
+>8. <A
+HREF="blocks.html"
+>Creating blocks</A
+></DT
+><DD
+><DL
+><DT
+>8.1. <A
+HREF="block-types.html"
+>The characteristics of the various types of blocks</A
+></DT
+><DT
+>8.2. <A
+HREF="block-creation.html"
+>How to create a new block</A
+></DT
+></DL
+></DD
+><DT
+>9. <A
+HREF="creating-modules.html"
+>Creating modules</A
+></DT
+><DD
+><DL
+><DT
+>9.1. <A
+HREF="module-structure.html"
+>Module structure</A
+></DT
+><DT
+>9.2. <A
+HREF="module-rules.html"
+>Creating fully compatible modules: the rules to follow</A
+></DT
+><DT
+>9.3. <A
+HREF="module-public.html"
+>Module creation, the public part</A
+></DT
+><DT
+>9.4. <A
+HREF="module-admin.html"
+>Module creation, administrator part</A
+></DT
+></DL
+></DD
+><DT
+>10. <A
+HREF="security.html"
+>Some security precautions</A
+></DT
+><DD
+><DL
+><DT
+>10.1. <A
+HREF="permissions2.html"
+>The permissions on the folders and files</A
+></DT
+><DT
+>10.2. <A
+HREF="cookies.html"
+>Cookies - timeout and configuration</A
+></DT
+></DL
+></DD
+><DT
+>11. <A
+HREF="tools.html"
+>Programmer's tools</A
+></DT
+><DD
+><DL
+><DT
+>11.1. <A
+HREF="database-tables.html"
+>The database tables</A
+></DT
+><DT
+>11.2. <A
+HREF="sql-syntax.html"
+>The syntax of SQL code</A
+></DT
+><DT
+>11.3. <A
+HREF="phpmyadmin2.html"
+>PHPMyadmin, administering MySQL via web</A
+></DT
+><DT
+>11.4. <A
+HREF="mysql-frontend.html"
+>MySQL Front, how to administer a MySQL DB from Windows</A
+></DT
+><DT
+>11.5. <A
+HREF="foxserv.html"
+>Foxserv, making PHP-Nuke work on Windows Systems</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="doc-index.html"
+>Index</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="LOT"
+><DL
+CLASS="LOT"
+><DT
+><B
+>List of Figures</B
+></DT
+><DT
+>3-1. <A
+HREF="frontend.html#FIG-HOMEPAGE"
+>PHP-Nuke Homepage</A
+></DT
+><DT
+>3-2. <A
+HREF="preinstalled-modules.html#FIG-CATEGORY"
+>Classifying articles</A
+></DT
+><DT
+>3-3. <A
+HREF="preinstalled-modules.html#FIG-DOWNLOADS"
+>Downloads module</A
+></DT
+><DT
+>3-4. <A
+HREF="preinstalled-modules.html#FIG-PRIVATE-MESSAGES"
+>Private messages</A
+></DT
+><DT
+>3-5. <A
+HREF="preinstalled-modules.html#FIG-SEARCH"
+>Search module</A
+></DT
+><DT
+>3-6. <A
+HREF="preinstalled-modules.html#FIG-STATS"
+>Statistics module</A
+></DT
+><DT
+>3-7. <A
+HREF="preinstalled-modules.html#FIG-YOUR-ACCOUNT"
+>Your account</A
+></DT
+><DT
+>3-8. <A
+HREF="preinstalled-modules.html#FIG-FORUM"
+>Forum</A
+></DT
+><DT
+>4-1. <A
+HREF="backend.html#FIG-ADMIN-PANEL"
+>Administration panel</A
+></DT
+><DT
+>4-2. <A
+HREF="administration-functions.html#FIG-ARTICLES"
+>Articles</A
+></DT
+><DT
+>5-1. <A
+HREF="installation-process.html#FIG-FILE-STRUCTURE"
+>PHP-Nuke 6.0 file structure</A
+></DT
+><DT
+>5-2. <A
+HREF="phpmyadmin.html#FIG-MYADMIN1"
+>PHPMyAdmin start screen</A
+></DT
+><DT
+>5-3. <A
+HREF="phpmyadmin.html#FIG-MYADMIN2"
+>PHPMyAdmin table selection</A
+></DT
+><DT
+>5-4. <A
+HREF="phpmyadmin.html#FIG-SQL-QUERY"
+>PHPMyAdmin: SQL query</A
+></DT
+><DT
+>5-5. <A
+HREF="phpmyadmin.html#FIG-MYADMIN4"
+>PHPMyAdmin: table data</A
+></DT
+><DT
+>5-6. <A
+HREF="phpmyadmin.html#FIG-MYADMIN5"
+>PHPMyAdmin: database dump</A
+></DT
+><DT
+>8-1. <A
+HREF="block-types.html#FIG-BLOCK-EXAMPLE"
+>Block example</A
+></DT
+><DT
+>9-1. <A
+HREF="module-public.html#FIG-INSERTING-VALUES"
+>PHPMyAdmin: inserting values</A
+></DT
+><DT
+>9-2. <A
+HREF="module-public.html#FIG-EXAMPLE-MODULE"
+>Example module</A
+></DT
+><DT
+>11-1. <A
+HREF="phpmyadmin2.html#FIG-MYADMIN1-COPY"
+>PHPMyAdmin start screen</A
+></DT
+><DT
+>11-2. <A
+HREF="phpmyadmin2.html#FIG-FORUM_TOPICS"
+>PHPMyAdmin: table forum_topics</A
+></DT
+><DT
+>11-3. <A
+HREF="mysql-frontend.html#FIG-MYSQLFRONT-CONNECTION"
+>MySQL Front: Connection</A
+></DT
+><DT
+>11-4. <A
+HREF="mysql-frontend.html#FIG-MYSQLFRONT-EXPORT-TABLES"
+>MySQL Front: export tables</A
+></DT
+><DT
+>11-5. <A
+HREF="mysql-frontend.html#FIG-MYSQLFRONT-SQL-QUERY"
+>MySQL Front: SQL Query</A
+></DT
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="terms.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Terms of distribution</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

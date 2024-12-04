@@ -1,0 +1,423 @@
+<HTML
+><HEAD
+><TITLE
+>Architecture and structure </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="book1.htm"><LINK
+REL="PREVIOUS"
+TITLE="How to install PHP-Nuke through PHPMyadmin"
+HREF="x1241.htm"><LINK
+REL="NEXT"
+TITLE="Main page management"
+HREF="x1491.htm"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x1241.htm"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x1491.htm"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="ARCHITECTURE"
+></A
+>Chapter 6. Architecture and structure </H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="c1363.htm#DIRECTORY-STRUCTURE"
+>Directory structure</A
+></DT
+><DT
+><A
+HREF="x1491.htm"
+>Main page management</A
+></DT
+><DT
+><A
+HREF="x1503.htm"
+>Module management</A
+></DT
+><DT
+><A
+HREF="x1526.htm"
+>Administration management</A
+></DT
+></DL
+></DIV
+><P
+>The structure of PHP-Nuke is organized in to modules, all the files are managed by other files that are located in the PHP-Nuke root directory and include, according to the parameters passed to them, the intended module.</P
+><P
+>These tasks are carried out from only 3 pages:</P
+><P
+></P
+><UL
+><LI
+><P
+>index.php<A
+NAME="AEN1370"
+></A
+> : In order to display the main page</P
+></LI
+><LI
+><P
+>modules.php<A
+NAME="AEN1374"
+></A
+> : In order to include the internal modules.</P
+></LI
+><LI
+><P
+>admin.php<A
+NAME="AEN1378"
+></A
+> : In order to include the administration interface.</P
+></LI
+></UL
+><P
+>It's not possible to call a module by calling a direct path to it. This is so in order to make installation easier, render the graphics management more independent (otherwise we would have to change the path of the images each time we position ourselves in an internal directory), have only a few files in the root directory and render the system more secure. </P
+><P
+>Everything is being called, as I said, through parameters (strings) passed to the &quot;modules.php&quot; file which specify which files are to be included. If for example we want to call the Topics module, the string to be passed should be <A
+HREF="http://www.yoursite.com/modules.php?name=Topics"
+TARGET="_top"
+>http://www.yoursite.com/modules.php?name=Topics</A
+></P
+><P
+>The command that is sent this way is &quot;includes in the page created by modules.php the output of the file index.php that is found in the folder modules/Topics/&quot;.</P
+><P
+>The other files present in the PHP-Nuke root directory are:</P
+><P
+></P
+><UL
+><LI
+><P
+>auth.php<A
+NAME="AEN1388"
+></A
+>: Manages authentication through the cookies.</P
+></LI
+><LI
+><P
+>mainfile.php<A
+NAME="AEN1392"
+></A
+>: Contains all the necessary functions for the management of PHP-Nuke</P
+></LI
+><LI
+><P
+>header.php<A
+NAME="AEN1396"
+></A
+>: manages the variables that are related to the header (inclusion of metatags, Javascript...)</P
+></LI
+><LI
+><P
+>footer.php<A
+NAME="AEN1400"
+></A
+>: variables related to the footer.</P
+></LI
+><LI
+><P
+>backend.php<A
+NAME="AEN1404"
+></A
+>: manages the output of the news that can be captured from other sites</P
+></LI
+><LI
+><P
+>ultramode.txt<A
+NAME="AEN1408"
+></A
+>: ditto</P
+></LI
+><LI
+><P
+>robots.txt<A
+NAME="AEN1412"
+></A
+>: contains instructions for the search engines informing them which folders not to index</P
+></LI
+></UL
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="DIRECTORY-STRUCTURE"
+></A
+>Directory structure</H1
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Admin<A
+NAME="AEN1419"
+></A
+>:</DT
+><DD
+><P
+>Contains 4 subdirectories (links, language, case, modules) that manage the various administration modules. The folder that accommodates the operating files is modules/admin/ .</P
+></DD
+><DT
+>Blocks<A
+NAME="AEN1425"
+></A
+>:</DT
+><DD
+><P
+>Contains all the block files for all of our available blocks. </P
+></DD
+><DT
+>Images<A
+NAME="AEN1431"
+></A
+>:</DT
+><DD
+><P
+>Contains all the images relating to PHP-Nuke, for example in the folder &quot;topics&quot; we will find archived the images of the topics that will appear in the news, in &quot;banners&quot; all banners in rotation etc...</P
+></DD
+><DT
+>In&nbsp;includes<A
+NAME="AEN1437"
+></A
+></DT
+><DD
+><P
+>are all the files that are necessary to particular management situations, these files do not work independently but are included in other files, mainly in mainfile.php and header.php. The files are:</P
+></DD
+></DL
+></DIV
+><P
+></P
+><UL
+><LI
+><P
+>counter.php<A
+NAME="AEN1444"
+></A
+> : serves to identify the users based on the operating system used, the browser, the page of origin, date of the visit...</P
+></LI
+><LI
+><P
+>javascript.php<A
+NAME="AEN1448"
+></A
+> : includes all necessary Javascript (if you need particular Javascript code, include it in this file).</P
+></LI
+><LI
+><P
+>meta.php<A
+NAME="AEN1452"
+></A
+> : manages the keywords to pass to the search engines and other parameters of the header. It is  an optimal system for learning how to create keywords and position the site with a good ranking in the search engines.</P
+></LI
+><LI
+><P
+>my_header.php<A
+NAME="AEN1456"
+></A
+> : manages the disclaimer message in the homepage.</P
+></LI
+><LI
+><P
+>sql_layer.php<A
+NAME="AEN1460"
+></A
+> : serves to manage the database abstraction layer. Transforms SQL instructions to the language of the chosen database. Remember that PHP-Nuke can manage various databases.</P
+></LI
+></UL
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Language<A
+NAME="AEN1465"
+></A
+>:</DT
+><DD
+><P
+>contains translation files for the basic PHP-Nuke module. The language file naming convention is lang-english.php. </P
+></DD
+></DL
+></DIV
+><DIV
+CLASS="CAUTION"
+><P
+></P
+><TABLE
+CLASS="CAUTION"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Attention!</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>The translation of the modules must be inserted in the appropriate folders (modules/languange) and not appended   to these files, as it was done till now. </P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Modules<A
+NAME="AEN1475"
+></A
+>:</DT
+><DD
+><P
+>The modules of PHP-Nuke comprise all the functionality that one can add to it.. In the Modules folder we insert the folders of every new module.</P
+></DD
+><DT
+>Themes<A
+NAME="AEN1481"
+></A
+>:</DT
+><DD
+><P
+>Here we add the graphical interfaces known as &quot;Themes&quot;, every folder has the name of the corresponding theme and contains a main file called theme.php and all other support files.</P
+></DD
+><DT
+>Upgrades<A
+NAME="AEN1487"
+></A
+>:</DT
+><DD
+><P
+>contains only the files that serve to upgrade the system from a previous version to a newer one.. </P
+></DD
+></DL
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x1241.htm"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.htm"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x1491.htm"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>How to install PHP-Nuke through PHPMyadmin</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Main page management</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

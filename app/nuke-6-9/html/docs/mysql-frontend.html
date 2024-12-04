@@ -1,0 +1,234 @@
+<HTML
+><HEAD
+><TITLE
+>MySQL Front, how to administer a MySQL DB from Windows </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Programmer's tools "
+HREF="tools.html"><LINK
+REL="PREVIOUS"
+TITLE="PHPMyadmin, administering MySQL via web"
+HREF="phpmyadmin2.html"><LINK
+REL="NEXT"
+TITLE="Foxserv, making PHP-Nuke work on Windows Systems"
+HREF="foxserv.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="phpmyadmin2.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 11. Programmer's tools</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="foxserv.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="MYSQL-FRONTEND"
+></A
+>11.4. MySQL Front, how to administer a MySQL DB from Windows</H1
+><P
+>Mysql Front is a client for Windows that allows for the management to manage a local or remote DB through a client interface. Since we consider PHP-Nuke to be more aproppriate and flexible tool for this task, we would like to focus our attention a little on a functionality of MySQLFront that on PHPMyAdmin has shown itself to be little reliable. That is the ability to load, import and export DBs of great dimensions without losing data or getting errors.</P
+><P
+>In this section we will limit ourselves in analyzing the connection phase, the import and upload.</P
+><P
+>Connection (<A
+HREF="mysql-frontend.html#FIG-MYSQLFRONT-CONNECTION"
+>Figure 11-3</A
+>): Clicking on File-&#62;Connection, we will get an interface in which we are asked to enter the host, user and password. If we have to use MySQLFront locally, we will leave the localhost entry untouched. </P
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-MYSQLFRONT-CONNECTION"
+></A
+><P
+><B
+>Figure 11-3.    MySQL Front: Connection
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/snapshot20.png"><DIV
+CLASS="CAPTION"
+><P
+>MySQL Front: Connection</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+><P
+>Download (or copy) of an existing DB: choose the database you wish to be exported and then click on "Export Tables" (fifth from the right, <A
+HREF="mysql-frontend.html#FIG-MYSQLFRONT-EXPORT-TABLES"
+>Figure 11-4</A
+>). Then choose a destination path for the database dump. As you may notice, the system, through the use of flags, gives us even the possibility to choose individually those tables we want to import.</P
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-MYSQLFRONT-EXPORT-TABLES"
+></A
+><P
+><B
+>Figure 11-4.    MySQL Front: export tables
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/snapshot21.png"><DIV
+CLASS="CAPTION"
+><P
+>MySQL Front: export tables</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+><P
+>Upload of a DB: clicking on the SQL Query button (<A
+HREF="mysql-frontend.html#FIG-MYSQLFRONT-SQL-QUERY"
+>Figure 11-5</A
+>), an interface appears that allows us to carry out the upload of an existing database. It suffices to click on the symbol of the open folder, choose the database dump and click on the button that looks"Play"-like button. Before starting this operation will have to select the destination database.</P
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-MYSQLFRONT-SQL-QUERY"
+></A
+><P
+><B
+>Figure 11-5.    MySQL Front: SQL Query
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/snapshot22.png"><DIV
+CLASS="CAPTION"
+><P
+>MySQL Front: SQL Query</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="phpmyadmin2.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="foxserv.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>PHPMyadmin, administering MySQL via web</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tools.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Foxserv, making PHP-Nuke work on Windows Systems</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

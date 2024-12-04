@@ -1,0 +1,572 @@
+<HTML
+><HEAD
+><TITLE
+>How to install PHP-Nuke through PHPMyadmin</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="book1.htm"><LINK
+REL="UP"
+TITLE="How to install PHP-Nuke"
+HREF="c1179.htm"><LINK
+REL="PREVIOUS"
+TITLE="How to install PHP-Nuke"
+HREF="c1179.htm"><LINK
+REL="NEXT"
+TITLE="Architecture and structure "
+HREF="c1363.htm"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="c1179.htm"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 5. How to install PHP-Nuke</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="c1363.htm"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="PHPMYADMIN"
+></A
+>How to install PHP-Nuke through PHPMyadmin</H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1243"
+></A
+>What Is PHPMyadmin<A
+NAME="WHATIS-PHPMYADMIN"
+></A
+></H2
+><P
+><A
+HREF="http://www.phpmyadmin.net/"
+TARGET="_top"
+>PHPMyAdmin</A
+><A
+NAME="AEN1248"
+></A
+> is an visual system for the management of a <A
+HREF="http://www.mysql.org"
+TARGET="_top"
+>MySQL</A
+> database (see <A
+HREF="x1241.htm#FIG-MYADMIN1"
+>Figure 5-2</A
+>). It is written in <A
+HREF="http://www.php.net"
+TARGET="_top"
+>PHP</A
+> and serves to display the contents of the databases on the server (or client) on which MySQL is installed. Through this interface you can create new databases, modify existing ones and modify the contents of single fields.</P
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-MYADMIN1"
+></A
+><P
+><B
+>Figure 5-2.    PHPMyAdmin start screen
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/myadmin1.png"><DIV
+CLASS="CAPTION"
+><P
+>PHPMyAdmin start screen</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="INSTALL-DB"
+></A
+>How to install the DB of PHP-Nuke with PHPMyadmin</H2
+><P
+>Clicking on the left bar, depending on the database you selected, you will see a list menu coming up, showing the structure of the database (and, on the same time, the central page will show the enlarged structure of the database), with a series of options, all of them in the bottom of the page (see <A
+HREF="x1241.htm#FIG-MYADMIN2"
+>Figure 5-3</A
+>). It is these options we are interested in when installing PHP-Nuke.</P
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-MYADMIN2"
+></A
+><P
+><B
+>Figure 5-3.    PHPMyAdmin table selection
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/myadmin2.png"><DIV
+CLASS="CAPTION"
+><P
+>PHPMyAdmin table selection</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+><P
+>What you have to do now, is to click on &quot;browse&quot; and go search for the .sql file that contains the instructions that build the structure of the PHP-Nuke database (see <A
+HREF="x1241.htm#FIG-SQL-QUERY"
+>Figure 5-4</A
+>). Once found, it suffices to click on &quot;Go&quot; and the database will be installed. Of course, if there are errors, they will be reported at the end of the installation procedure. And of course, the same holds for the message &quot;operation succeeded&quot;.</P
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-SQL-QUERY"
+></A
+><P
+><B
+>Figure 5-4.    PHPMyAdmin: SQL query
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/myadmin3.png"><DIV
+CLASS="CAPTION"
+><P
+>PHPMyAdmin: SQL query</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+><DIV
+CLASS="TIP"
+><BLOCKQUOTE
+CLASS="TIP"
+><P
+><B
+>Tip: </B
+>Other options of PHPMyAdmin  that are not relative  to the  installation of PHP-Nuke can be found in  the <A
+HREF="http://www.spaghettibrain.com/modules.php?name=Downloads&#38;d_op=viewdownload&#38;cid=1"
+TARGET="_top"
+>tutorial published on www.spaghettibrain.com</A
+> and in <A
+HREF="x2692.htm"
+>the Section called <I
+>PHPMyadmin, administering MySQL via web</I
+> in Chapter 11</A
+>.</P
+></BLOCKQUOTE
+></DIV
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-MYADMIN4"
+></A
+><P
+><B
+>Figure 5-5.    PHPMyAdmin: table data
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/myadmin4.png"><DIV
+CLASS="CAPTION"
+><P
+>PHPMyAdmin: table data</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-MYADMIN5"
+></A
+><P
+><B
+>Figure 5-6.    PHPMyAdmin: database dump
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/myadmin5.png"><DIV
+CLASS="CAPTION"
+><P
+>PHPMyAdmin: database dump</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1314"
+></A
+>The config.php file</H2
+><P
+>Ok, the last thing that remains to do before starting with the management of your site, is to configure the file config.php<A
+NAME="AEN1317"
+></A
+> This is important because it sets up a connection between the PHP files of PHP-Nuke and the MySQL database that manages it.</P
+><P
+>There is only a few parameters to configure. When you open the file &quot;config.php&quot; you will see the following near the top:</P
+><PRE
+CLASS="SCREEN"
+>$dbhost = "localhost"; <A
+NAME="DBHOST"
+><IMG
+SRC="../images/callouts/1.gif"
+HSPACE="0"
+VSPACE="0"
+BORDER="0"
+ALT="(1)"></A
+>
+$dbuname = "root"; <A
+NAME="DBUNAME"
+><IMG
+SRC="../images/callouts/2.gif"
+HSPACE="0"
+VSPACE="0"
+BORDER="0"
+ALT="(2)"></A
+>
+$dbpass = ""; <A
+NAME="DBPASS"
+><IMG
+SRC="../images/callouts/3.gif"
+HSPACE="0"
+VSPACE="0"
+BORDER="0"
+ALT="(3)"></A
+>
+$dbname = "nuke"; <A
+NAME="DBNAME"
+><IMG
+SRC="../images/callouts/4.gif"
+HSPACE="0"
+VSPACE="0"
+BORDER="0"
+ALT="(4)"></A
+>
+$system = "1"; <A
+NAME="SYSTEM"
+><IMG
+SRC="../images/callouts/5.gif"
+HSPACE="0"
+VSPACE="0"
+BORDER="0"
+ALT="(5)"></A
+>
+$prefix = "nuke"; <A
+NAME="PREFIX"
+><IMG
+SRC="../images/callouts/6.gif"
+HSPACE="0"
+VSPACE="0"
+BORDER="0"
+ALT="(6)"></A
+>
+$user_prefix = "nuke"; 
+$dbtype = "MySQL"; </PRE
+><DIV
+CLASS="CALLOUTLIST"
+><DL
+COMPACT="COMPACT"
+><DT
+><A
+HREF="x1241.htm#DBHOST"
+><IMG
+SRC="../images/callouts/1.gif"
+HSPACE="0"
+VSPACE="0"
+BORDER="0"
+ALT="(1)"></A
+></DT
+><DD
+>       In place of  "localhost" you will have to put  the host/server that the database is installed on.
+      </DD
+><DT
+><A
+HREF="x1241.htm#DBUNAME"
+><IMG
+SRC="../images/callouts/2.gif"
+HSPACE="0"
+VSPACE="0"
+BORDER="0"
+ALT="(2)"></A
+></DT
+><DD
+>       In place of  "root"  you must put your username.
+       </DD
+><DT
+><A
+HREF="x1241.htm#DBPASS"
+><IMG
+SRC="../images/callouts/3.gif"
+HSPACE="0"
+VSPACE="0"
+BORDER="0"
+ALT="(3)"></A
+></DT
+><DD
+>       You will have  to insert your password here.
+       </DD
+><DT
+><A
+HREF="x1241.htm#DBNAME"
+><IMG
+SRC="../images/callouts/4.gif"
+HSPACE="0"
+VSPACE="0"
+BORDER="0"
+ALT="(4)"></A
+></DT
+><DD
+>       In place of "nuke" you will have  to insert the name of your database here.
+       </DD
+><DT
+><A
+HREF="x1241.htm#SYSTEM"
+><IMG
+SRC="../images/callouts/5.gif"
+HSPACE="0"
+VSPACE="0"
+BORDER="0"
+ALT="(5)"></A
+></DT
+><DD
+>       Leave it to 0 if  on Linux/Unix systems,  put 1 if on a Windows server)
+       </DD
+><DT
+><A
+HREF="x1241.htm#PREFIX"
+><IMG
+SRC="../images/callouts/6.gif"
+HSPACE="0"
+VSPACE="0"
+BORDER="0"
+ALT="(6)"></A
+></DT
+><DD
+>       I recommend this to be left to its default value, "nuke", is the prefix that goes in front of the name of every database table.
+       </DD
+></DL
+></DIV
+><P
+>Let's do an example:</P
+><P
+></P
+><UL
+><LI
+><P
+>Host DB: 212.110.12.297 </P
+></LI
+><LI
+><P
+>User DB: Pippo </P
+></LI
+><LI
+><P
+>Password DB: Topolino </P
+></LI
+><LI
+><P
+>Database Name: Orazio </P
+></LI
+><LI
+><P
+>Operating System Used: Linux (what else!!! :-) )</P
+></LI
+></UL
+><P
+>The file config.php should then look like:</P
+><PRE
+CLASS="SCREEN"
+>$dbhost = "212.110.12.297";
+$dbuname = "Pippo";
+$dbpass = "Topolino";
+$dbname = "Orazio";
+$system = 0;
+$prefix = "nuke"; </PRE
+><DIV
+CLASS="CAUTION"
+><P
+></P
+><TABLE
+CLASS="CAUTION"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Attention!</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>This is case sensitive! Remember to use The Capital Letters!!! On Linux systems, if you write a user name or a password without  taking care of letter case, the system will not allow you to log in.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>Ok, we are done, the only thing that remains to do is to enter the administration section (www.yoursite.com/admin.php). The very first time you will log in using &ldquo;God&rdquo; as username and &ldquo;Password&rdquo; as password. I recommend you to change these as soon as possible.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="RESOURCES"
+></A
+>Resources</H2
+><P
+>If you are looking for PHP-Nuke hosting, <A
+HREF="http://www.spaghettibrain.com"
+TARGET="_top"
+>Spaghettibrain.com</A
+> has custom offers for you... give us a visit! <A
+HREF="http://www.spaghettibrain.com"
+TARGET="_top"
+>Spaghettibrain.com</A
+> is the italian support site for PHP-Nuke, there you will find modules, security patches, support forums and a lot more. Come for a tour soon.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="c1179.htm"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.htm"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="c1363.htm"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>How to install PHP-Nuke</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="c1179.htm"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Architecture and structure</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

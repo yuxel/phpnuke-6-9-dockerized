@@ -1,0 +1,446 @@
+<HTML
+><HEAD
+><TITLE
+>Module creation, the public part</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Creating modules"
+HREF="creating-modules.html"><LINK
+REL="PREVIOUS"
+TITLE="Creating fully compatible modules: the rules to follow"
+HREF="module-rules.html"><LINK
+REL="NEXT"
+TITLE="Module creation, administrator part"
+HREF="module-admin.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="module-rules.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 9. Creating modules</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="module-admin.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="MODULE-PUBLIC"
+></A
+>9.3. Module creation, the public part</H1
+><P
+>We continue using the example of Topolino from <A
+HREF="module-rules.html"
+>Section 9.2</A
+> and create a very simple module that displays a GIF of Topolino with a list of 3 predefined names that are editable by the users. This is a nonsense module but it's simple enough to be understood by everybody. The DB we will use is MySQL, but the example, by changing some detail, works with all DB's. First of all let's see the skeleton of every module that we will construct:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;?php
+if (!eregi("modules.php", $PHP_SELF)) {
+die ("You can't access this file directly...");
+}
+$index = 1;
+require_once("mainfile.php");
+$module_name = basename(dirname(__FILE__));
+get_lang($module_name);
+include("header.php");
+include("footer.php");
+?&#62; </PRE
+></FONT
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="IMPORTANT"
+><P
+></P
+><TABLE
+CLASS="IMPORTANT"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/important.gif"
+HSPACE="5"
+ALT="Important"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>Before making anything it's necessary to create a folder called "modules/Topolino", the file we have just created (with the other contents) must be called index.php and must stay in that folder.  </P
+></TD
+></TR
+></TABLE
+></DIV
+>We create a table in the database called nuke_topolino that is structured in this way:
+<P
+></P
+><UL
+><LI
+><P
+>idperson: It is a cell that contains the id of person (int 11, primary)</P
+></LI
+><LI
+><P
+>nameperson: It is a cell that contains the names of the people (varchar 60)</P
+></LI
+></UL
+><P
+>And we manually insert (by using PHPMyAdmin - see <A
+HREF="phpmyadmin2.html"
+>Section 11.3</A
+> - or an equivalent interface) the names of the 3 people we are interested in, see <A
+HREF="module-public.html#FIG-INSERTING-VALUES"
+>Figure 9-1</A
+> (the module, for simplicity reasons doesn't allow you to add or to cancel people but only editing those that already exist).</P
+><P
+></P
+><UL
+><LI
+><P
+>Id 1: Topolino</P
+></LI
+><LI
+><P
+>Id 2: Minnie</P
+></LI
+><LI
+><P
+>Id 3: Pluto</P
+></LI
+></UL
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-INSERTING-VALUES"
+></A
+><P
+><B
+>Figure 9-1.    PHPMyAdmin: inserting values
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/snapshot16.png"><DIV
+CLASS="CAPTION"
+><P
+>PHPMyAdmin: inserting values</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>It's possible to include the footer at the end of every function. It's a solution that is a bit more complex because we must write more lines, but I have to stress how much alot of modules use it.</P
+></TD
+></TR
+></TABLE
+></DIV
+>Once that the table of the DB is ready we can begin to enjoy creating the code that will give us back our output. Our output will be one simple query with a cycle that will give back  the values inserted in the database (the simplest thing in the world, Gosh!).
+<DIV
+CLASS="CAUTION"
+><P
+></P
+><TABLE
+CLASS="CAUTION"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/caution.gif"
+HSPACE="5"
+ALT="Caution"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>Attention!!!</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>To maintain the abstraction of the DB so that it can work on various database's in an independent way, we cannot use classic PHP syntax that is generally used by the MySQL addicted ; -), instead we must use the syntax illustrated in the file include/sql_layer.php</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>The query that we will compile will be structured in the following way:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>$resultpersons = sql_query("SELECT idperson, nameperson FROM "$prefix."_topolino", $dbi);
+for ($m=0; $m &#60; sql_num_rows($resultpersons, $dbi); $m++)
+{
+list($idperson, $nameperson) = sql_fetch_row($resultpersons, $dbi);
+echo "$idperson - $nameperson &#60; br &#62;";
+}</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>Very simple, isn't it? OK!, before passing to the administrator's interface for this module, we will start to modify it with the intention of giving it a minimum style dignity.</P
+><P
+>I would propose:</P
+><P
+></P
+><UL
+><LI
+><P
+>to insert the results in a table </P
+></LI
+><LI
+><P
+>to put a title to it and a description for the module.</P
+></LI
+></UL
+><P
+>We can do this by rendering all of the module's compatible with the multilanguage system of PHP-Nuke: We define the abstractions that will compose the two phrases we need, in the file lang-english.php we have to insert:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;?php
+define("_BENVETOPOMOD", "Topolino Module, Welcome!");
+define("_DESCRITOPOMOD", "This is an example module that serves to illustrate how a PHP-Nuke module is created");
+&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>Remember to insert a file called index.htm in our language folder! We need it to protect the inside of that folder from undesired navigations. We are nearly at the end of the frontend part, now we have to insert the stylistic part in the code that we have created and to assemble everything. We take two code pieces previously constructed (The initial one and the one created by us) and we join the stylistic modification:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;?php if (!eregi("modules.php", $PHP_SELF)) 
+{ die ("You can't access this rows directly..."); } 
+$index = 1; require_once("mainfile.php"); 
+$module_name = basename(dirname(__FILE__)); 
+get_lang($module_name); 
+include("header.php"); 
+echo "&#60;br&#62;"; 
+echo""._BENVETOPOMOD.""; 
+echo "&#60;br&#62;&#60;br&#62;"; 
+opentable();
+echo "&#60;br&#62;"; 
+echo""._DESCRITOPOMOD.""; 
+echo "&#60;br&#62;&#60;br&#62;"; 
+$resultpersons = sql_query("SELECT idperson, nameperson FROM ".$prefix."_topolino", $dbi);
+for ($m=0; $m &#60; sql_num_rows($resultpersons, $dbi); 
+$m++) { list($idperson, $nameperson) = sql_fetch_row($resultpersons, $dbi); echo "$idperson - $nameperson &#60;br&#62;";
+} 
+closetable();
+include("footer.php");
+?&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>We have only added text, some breaks for the headers and an "Opentable();" and a "Closetable();" to include the text. The result can be seen in <A
+HREF="module-public.html#FIG-EXAMPLE-MODULE"
+>Figure 9-2</A
+></P
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-EXAMPLE-MODULE"
+></A
+><P
+><B
+>Figure 9-2.    Example module
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/snapshot17.png"><DIV
+CLASS="CAPTION"
+><P
+>Example module</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="module-rules.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="module-admin.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Creating fully compatible modules: the rules to follow</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="creating-modules.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Module creation, administrator part</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,35 @@
+<?php
+
+/**************************************************************************/
+/* PHP-NUKE: Advanced Content Management System                           */
+/* ============================================                           */
+/*                                                                        */
+/* This is the language module with all the system messages               */
+/*                                                                        */
+/* If you made a translation, please go to the site and send to me        */
+/* the translated file. Please keep the original text order by modules,   */
+/* and just one message per line, also double check your translation!     */
+/*                                                                        */
+/* You need to change the second quoted phrase, not the capital one!      */
+/*                                                                        */
+/* If you need to use double quotes (") remember to add a backslash (\),  */
+/* so your entry will look like: This is \"double quoted\" text.          */
+/* And, if you use HTML code, please double check it.                     */
+/**************************************************************************/
+
+define("_PRINTER","ÕÝÍÉ ááØÈÇÚÉ");
+define("_PREVIOUS","ÇáÕÝÍÉ ÇáÓÇÈÞÉ");
+define("_NEXT","ÇáÕÝÍÉ ÇáÊÇáíÉ");
+define("_COMESFROM","ÃÊì åÐÇ ÇáãÞÇá ãä");
+define("_THEURL","ÚäæÇä ÇáÑÇÈØ áåÐÇ ÇáãÞÇá åæ:");
+define("_SECWELCOME","ÃåáÇ Èß Ýí ÇáÃÞÓÇã ÇáÎÇÕÉ Ýí");
+define("_YOUCANFIND","ÓÊÌÏ åäÇ ãÞÇáÇÊ ÔíÞÉ ÛíÑ ãæÌæÏÉ Ýí ÇáÕÝÍÉ ÇáÑÆíÓíÉ.");
+define("_THISISSEC","åÐÇ åæ ÞÓã");
+define("_FOLLOWINGART","åÐå åí ÇáãÞÇáÇÊ ÇáãäÔæÑÉ ÊÍÊ åÐÇ ÇáÞÓã.");
+define("_SECRETURN","ÚæÏÉ Çáì ÞÇÆãÉ ÇáÃÞÓÇã ÇáÎÇÕÉ");
+define("_TOTALWORDS","ãÌãæÚ ÇáßáãÇÊ Ýí åÐÇ ÇáäÕ");
+define("_BACKTO","ÇáÚæÏÉ Çáì");
+define("_SECINDEX","ÞÇÆãÉ ÇáÃÞÓÇã ÇáÎÇÕÉ");
+define("_PAGE","ÕÝÍÉ");
+
+?>

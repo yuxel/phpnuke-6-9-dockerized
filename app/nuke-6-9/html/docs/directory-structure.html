@@ -1,0 +1,272 @@
+<HTML
+><HEAD
+><TITLE
+>Directory structure </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Architecture and structure "
+HREF="architecture.html"><LINK
+REL="PREVIOUS"
+TITLE="Architecture and structure "
+HREF="architecture.html"><LINK
+REL="NEXT"
+TITLE="Main page management"
+HREF="main-page-management.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="architecture.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. Architecture and structure</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="main-page-management.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="DIRECTORY-STRUCTURE"
+></A
+>6.1. Directory structure</H1
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Admin:</DT
+><DD
+><P
+>Contains 4 subdirectories (links, language, case, modules) that manage the various administration modules. The folder that accommodates the operating files is modules/admin/ .</P
+></DD
+><DT
+>Blocks:</DT
+><DD
+><P
+>Contains all the block files for all of our available blocks. </P
+></DD
+><DT
+>Images:</DT
+><DD
+><P
+>Contains all the images relating to PHP-Nuke, for example in the folder "topics" we will find archived the images of the topics that will appear in the news, in "banners" all banners in rotation etc...</P
+></DD
+><DT
+>In includes</DT
+><DD
+><P
+>are all the files that are necessary to particular management situations, these files do not work independently but are included in other files, mainly in mainfile.php and header.php. The files are:</P
+></DD
+></DL
+></DIV
+><P
+></P
+><UL
+><LI
+><P
+>counter.php : serves to identify the users based on the operating system used, the browser, the page of origin, date of the visit...</P
+></LI
+><LI
+><P
+>javascript.php : includes all necessary Javascript (if you need particular Javascript code, include it in this file).</P
+></LI
+><LI
+><P
+>meta.php : manages the keywords to pass to the search engines and other parameters of the header. It is  an optimal system for learning how to create keywords and position the site with a good ranking in the search engines.</P
+></LI
+><LI
+><P
+>my_header.php : manages the disclaimer message in the homepage.</P
+></LI
+><LI
+><P
+>sql_layer.php : serves to manage the database abstraction layer. Transforms SQL instructions to the language of the chosen database. Remember that PHP-Nuke can manage various databases.</P
+></LI
+></UL
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Language:</DT
+><DD
+><P
+>contains translation files for the basic PHP-Nuke module. The language file naming convention is lang-english.php. </P
+></DD
+></DL
+></DIV
+><DIV
+CLASS="CAUTION"
+><P
+></P
+><TABLE
+CLASS="CAUTION"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/caution.gif"
+HSPACE="5"
+ALT="Caution"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>Attention!</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The translation of the modules must be inserted in the appropriate folders (modules/languange) and not appended   to these files, as it was done till now. </P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Modules:</DT
+><DD
+><P
+>The modules of PHP-Nuke comprise all the functionality that one can add to it.. In the Modules folder we insert the folders of every new module.</P
+></DD
+><DT
+>Themes:</DT
+><DD
+><P
+>Here we add the graphical interfaces known as "Themes", every folder has the name of the corresponding theme and contains a main file called theme.php and all other support files.</P
+></DD
+><DT
+>Upgrades:</DT
+><DD
+><P
+>contains only the files that serve to upgrade the system from a previous version to a newer one.. </P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="architecture.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="main-page-management.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Architecture and structure</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="architecture.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Main page management</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

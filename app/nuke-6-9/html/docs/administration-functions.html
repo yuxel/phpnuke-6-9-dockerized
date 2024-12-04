@@ -1,0 +1,529 @@
+<HTML
+><HEAD
+><TITLE
+>The administration functions</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Back end structure: administrator view"
+HREF="backend.html"><LINK
+REL="PREVIOUS"
+TITLE="Back end structure: administrator view"
+HREF="backend.html"><LINK
+REL="NEXT"
+TITLE="The Preferences Page "
+HREF="preferences.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="backend.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 4. Back end structure: administrator view</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="preferences.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="ADMINISTRATION-FUNCTIONS"
+></A
+>4.1. The administration functions</H1
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Function "add article":</DT
+><DD
+><P
+>It is  the function that adds a new article to the News module. The options offered are many and will be analyzed here for one (see <A
+HREF="administration-functions.html#FIG-ARTICLES"
+>Figure 4-2</A
+>):</P
+></DD
+></DL
+></DIV
+><P
+></P
+><UL
+><LI
+><P
+>Title: inserts the news title.</P
+></LI
+><LI
+><P
+>Topic: Determines which Topic will be associated with the article.</P
+></LI
+><LI
+><P
+>Category:Determines which Category will be associated with the article.</P
+></LI
+><LI
+><P
+>Publish in the Homepage: if this option is not selected, then the article will be displayed only in the topics or the relative categories and not in the main page of the news module .</P
+></LI
+><LI
+><P
+>Activate comments: If it's not activated the users cannot comment on the article.</P
+></LI
+><LI
+><P
+>Language: If in the preferences we have activated the multilingual option, we will be asked in which language we will publish the article. (e.g. if I publish an article in english, I will see it displayed only if I click on the small english flag in the languages block and so on...).</P
+></LI
+><LI
+><P
+>Story Text: It is  the text that appears in the preview.</P
+></LI
+><LI
+><P
+>Extended Text: It is  the text that appears when we click on "read all".</P
+></LI
+><LI
+><P
+>Programmed article: The administrator is given the ability to choose when the article should be published, deciding on the publishing date and hour. It is not a neccesary function but it is very useful.</P
+></LI
+><LI
+><P
+>Preview or send: Depending on the choice made here determines whether the article will be displayed in preview mode or directly published.</P
+></LI
+><LI
+><P
+>Survey: It is possible to attach a survey to a specific article. In the case that this option is activated, when the reader clicks on "read all", a survey block like the one shown in the screenshot will appear. 
+
+<DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-ARTICLES"
+></A
+><P
+><B
+>Figure 4-2.    Articles
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/snapshot11.png"><DIV
+CLASS="CAPTION"
+><P
+>Articles</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></LI
+></UL
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Function "Backup DB":</DT
+><DD
+><P
+>It is  the function that allows us to create a backup file that contains both structure and content of the PHP-Nuke database. This is very useful in case our data gets lost. Once we click on "Backup DB", we will have to wait for the server to create the file. Waiting time varies from a few seconds to some minutes in the case of a large database. Once created, we will be asked to download the file. Remember to keep your backup in a safe place!</P
+></DD
+><DT
+>Function "Blocks":</DT
+><DD
+><P
+>It's a very important function because it allows us to control the left and right columns of our portal. The scheme is presented with a list of the blocks that we have created, we can then activate, deactivate or edit them changing their position and order and assigning them permissions. We can in fact decide if a block should be visible by all, only by the registered users, or only the administrator. We can also make the block visible only in a specific language.</P
+></DD
+></DL
+></DIV
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>Please note</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This info is also  present  in <A
+HREF="blocks.html"
+>Chapter 8</A
+> </P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>The PHP-Nuke blocks can be of 3 different types:</P
+><P
+></P
+><UL
+><LI
+><P
+>RSS/RDF: They are blocks that capture news from other sites that are put at our disposal, the files are in a standard format suitable for reading the text contained in them. (For example the site <A
+HREF="http://www.spaghettibrain.com"
+TARGET="_top"
+>Spaghettibrain.com</A
+> gives news to other sites).</P
+></LI
+><LI
+><P
+>Blocks of content: They are blocks which we insert simple HTML or text that will be displayed inside the block (see the following example)</P
+></LI
+><LI
+><P
+>Blocks of files: They are PHP scripts that execute predetermined commands (see the following paragraph)</P
+></LI
+></UL
+><P
+>In order to create a new block that will be added to the list of available blocks, we must scroll down the page and position ourselves on "add block". </P
+><P
+>The title field is a common element for all and will be compiled in.</P
+><P
+></P
+><UL
+><LI
+><P
+>If we want to create a RSS/RDF block we must choose the news source from the available list or add one by clicking on &#8220;setup&#8221;. In this case we will supply the address of the file to read (this info generally will be supplied by the webmaster of the site from which we capture the news, or, if it is a site created with PHP-Nuke, simply by asking for the file backend.php of that site). The other fields will all be compiled in with the exception of &#8220;filename&#8221; and &#8220;Content&#8221;.</P
+></LI
+><LI
+><P
+>If we want to create a block of simple text instead, we will omit the field &#8220;RSS/RDF file URL&#8221; and will complete &#8220;Content&#8221; instead (Omitting &#8221;filename&#8221;).</P
+></LI
+><LI
+><P
+>If instead we want to include the PHP files that interface with a database or perform particular functions, then we will omit &#8220;Content&#8221; and &#8220;RSS/RDF&#8221; and will choose between the available files the one that will create our block. (If you want more info on how to create blocks, see <A
+HREF="blocks.html"
+>Chapter 8</A
+>). </P
+></LI
+></UL
+><P
+>Remember that before publishing a block a preview will be shown to us.</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Content Manager:</DT
+><DD
+><P
+>This function allowes us to add new categories and new content inside the content section. It is  very similar to the articles but with less functions. A noteworthy feature is the possibility to add the tag</P
+></DD
+></DL
+></DIV
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;! -- pagebreak -- &#62; </PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>in order to create a multipage article.</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Downloads:</DT
+><DD
+><P
+>It creates categories, subcategories and adds files to the download area. For security reasons, the system does not allow file uploads via HTTP, only their linking through their HTTP address. If for example the file <EM
+>files.zip</EM
+> is found in the directory <EM
+>files</EM
+> of our site, we would have to link it as <EM
+>www.oursite.com/files/file.zip</EM
+>. This allows us to link external resources also.</P
+></DD
+><DT
+>Edit Administrators:</DT
+><DD
+><P
+>Enables us to add new administrators, defining their access levels. Besides having a super administrator it is in fact possible to activate only partial functions for the various administrators.</P
+></DD
+><DT
+>Edit Users:</DT
+><DD
+><P
+>From here it is possible to manually add new users and to modify existing ones, choosing their profile by typing the nickname in the appropriate form.</P
+></DD
+><DT
+>Encyclopedia:</DT
+><DD
+><P
+>Allows the creation of multiple word lists (choosing also the language), after having created an encyclopedia we can proceed to the insertion of terms.</P
+></DD
+><DT
+>Ephemerids:</DT
+><DD
+><P
+>Allows the insertion of recurrent events choosing the date and inserting a description.</P
+></DD
+><DT
+>FAQ:</DT
+><DD
+><P
+>Allows the creation of the main FAQ categories and all related questions/answers.</P
+></DD
+><DT
+>Splatt Forum:</DT
+><DD
+><P
+>The management of the forum is divided in 4 areas: </P
+></DD
+></DL
+></DIV
+><P
+></P
+><UL
+><LI
+><P
+>Preferences: It manages the characteristics of the forum (For security reasons it's advisable to deactivate the option to mail in HTML).</P
+></LI
+><LI
+><P
+>Categories and forum: defines the categories, the forums included in them, the moderators of every forum, levels of access etc... For a forum to be visible, you MUST activate at least one moderator otherwise the forum won't show up!</P
+></LI
+><LI
+><P
+>Ranks: defines the attention thresholds for the forum. Upon reception of the nth post, aproppriate images will be attached to attract proper attention of the visitors.</P
+></LI
+><LI
+><P
+>Users: moderator management through a complete list of the registered users.</P
+></LI
+></UL
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>HTTP Referrers:</DT
+><DD
+><P
+>It displays the origin of the last accesses to the site.</P
+></DD
+><DT
+>Messages:</DT
+><DD
+><P
+>It creates a central block in the Home Page in order to send selective messages to the users. The messages can be sent to only registered users, to non-registered users, to the administrator or one may carry out a selection by language.</P
+></DD
+><DT
+>Modules:</DT
+><DD
+><P
+>Allows the management of the modules installed. The modules can be activated, deactivated or be assigned read permissions. A module can be world-readable, readable only by the registered users, or only the administrator.</P
+></DD
+><DT
+>Newsletter:</DT
+><DD
+><P
+>the PHP-Nuke administrator can send a newsletter to the registered users who have consented to receive them or send them to all the registered users. Attention to spam!</P
+></DD
+><DT
+>Optimize DB:</DT
+><DD
+><P
+>Optimizes the data increasing database speed.</P
+></DD
+><DT
+>Preferences:</DT
+><DD
+><P
+>This subject will be treated in <A
+HREF="preferences.html"
+>Section 4.2</A
+>.</P
+></DD
+><DT
+>Book Reviews:</DT
+><DD
+><P
+>It allows us to insert book reviews. In every book review it is possible to cast a vote, a link relative to the subject and finally an image that represents the content.</P
+></DD
+><DT
+>Section Manager:</DT
+><DD
+><P
+>it manages the sections and contents thereof. It is possible to associate an image to the section subject, just as it is in the topics. It is  possible to add articles to the sections selecting the aproppriate category through a radio button, to divide long texts using the &#60;! -- pagebreak -- &#62; tag and to edit or cancel already added sections.</P
+></DD
+><DT
+>Articles:</DT
+><DD
+><P
+>Manages articles inserted by third parties. It is the moderation area of the News module that we have already analyzed in this section.</P
+></DD
+><DT
+>Survey/Polls:</DT
+><DD
+><P
+>Creates a new survey for the site, edits or cancels old ones. It is possible to insert up to 10 different answers to every survey. In the context of the creation of the survey it is possible, on the same page, to publish a news article that announces its creation.</P
+></DD
+><DT
+>Topics:</DT
+><DD
+><P
+>Allows you to create new topics and the association, through a pop-up menu, of corresponding images.</P
+></DD
+><DT
+>Links:</DT
+><DD
+><P
+>Allows us to edit links published by others, create categories for archiving the links, eliminate links, see user messages informing us of any broken links through an interface very similar to the downloads section and add new links.</P
+></DD
+><DT
+>Logout/Exit:</DT
+><DD
+><P
+>Exits from the administration area rendering the cookie invalid. It is  good practice to login logout after having finished working with PHP-Nuke. For security reasons.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="backend.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="preferences.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Back end structure: administrator view</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="backend.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>The Preferences Page</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,207 @@
+<HTML
+><HEAD
+><TITLE
+>Module management</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Architecture and structure "
+HREF="architecture.html"><LINK
+REL="PREVIOUS"
+TITLE="Main page management"
+HREF="main-page-management.html"><LINK
+REL="NEXT"
+TITLE="Administration management "
+HREF="admin-management.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="main-page-management.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. Architecture and structure</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="admin-management.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="MODULE-MANAGEMENT"
+></A
+>6.3. Module management</H1
+><P
+>For reasons of order, the modules are managed through the files present in the subdirectories that contain them, every module has its own folder in the interior of the folder "modules".</P
+><P
+>In order to be loaded, the module files get included in the modules.php file by passing it the aproppriate parameters. The main page of each module must be called index.php, the other possibly pages possibly present in the module will have an additional variable in the inside of parameter strings by which they are called..</P
+><P
+>For example in the AvantGo module (see ) in order to load the index.php file, it is enough to pass the module name to the parameter string (by default, the file that will be searched for is index.php):</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>modules.php?name=AvantGo</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>If we instead wanted to call a page other than the default index.php (say, print.php), the string we will have to pass is :</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>modules.php?name=AvantGo&#38;file=print</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>that is the file variable with a value (print) that corresponds to the name of the file we want to load without the .php extension.</P
+><P
+>Inside the folder modules/nameofmodule there is also a subfolder called "language". In this fashion we manage in a simple and immediate way the multilanguage functionality inside the modules.</P
+><P
+>The modules.php file works this way:</P
+><P
+></P
+><UL
+><LI
+><P
+>Includes mainfile.php</P
+></LI
+><LI
+><P
+>Verifies whether the module is active or not</P
+></LI
+><LI
+><P
+>Verifies whether the string passes a file name different from index.php</P
+></LI
+><LI
+><P
+>Verifies the permissions of the module (whether everybody can see it, or only registered users, or only the administrator).</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="main-page-management.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="admin-management.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Main page management</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="architecture.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Administration management</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

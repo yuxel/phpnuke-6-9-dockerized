@@ -1,0 +1,187 @@
+<HTML
+><HEAD
+><TITLE
+>Theme construction: the rules to follow </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Customising PHP-Nuke themes "
+HREF="customization.html"><LINK
+REL="PREVIOUS"
+TITLE="Modifying the HTML template"
+HREF="template.html"><LINK
+REL="NEXT"
+TITLE="Creating blocks"
+HREF="blocks.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="template.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 7. Customising PHP-Nuke themes</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="blocks.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="THEME-RULES"
+></A
+>7.3. Theme construction: the rules to follow</H1
+><P
+>Considering that the example is always on NukeNews, I suggest you always use this theme as an example, by using the HTML template without directly inserting too many tags in the PHP code, you save time and increase the sites stylistic effect by easily making changes across your site.</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>When you add images in an automatic way by using a visual editor, the path will be only images/image.gif, and you have to correct it by hand with the right path.</P
+></LI
+><LI
+><P
+>You can insert variables in the HTML that will then be called by PHP - it is important that they are inserted in the global part of the function that will include the file.</P
+></LI
+><LI
+><P
+>The visual editor has the defect to open and close the tables, correcting what it thinks is an error. Pay attention because sometimes, in the html files we use, a table is not closed because it will be closed by the successive html file. For example, as often happened, DreamWeaver would close a header by making a mistake in the tables. The header must be closed in the following way:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;td bgcolor="#ffffff "width="150" valign="top "&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>Where this table is that one that includes the right blocks.</P
+></LI
+><LI
+><P
+>Try to validate the code as much as possible and to use the style sheets as much you can. In this way you will save a lot of time when you will modify colors, fonts etc... In order to validate the code go to <A
+HREF="www.w3c.org"
+TARGET="_top"
+>www.w3c.org</A
+></P
+></LI
+></OL
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="template.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="blocks.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Modifying the HTML template</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="customization.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Creating blocks</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

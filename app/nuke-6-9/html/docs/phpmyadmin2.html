@@ -1,0 +1,341 @@
+<HTML
+><HEAD
+><TITLE
+>PHPMyadmin, administering MySQL via web</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Programmer's tools "
+HREF="tools.html"><LINK
+REL="PREVIOUS"
+TITLE="The syntax of SQL code"
+HREF="sql-syntax.html"><LINK
+REL="NEXT"
+TITLE="MySQL Front, how to administer a MySQL DB from Windows "
+HREF="mysql-frontend.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="sql-syntax.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 11. Programmer's tools</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="mysql-frontend.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="PHPMYADMIN2"
+></A
+>11.3. PHPMyadmin, administering MySQL via web</H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN2694"
+></A
+>11.3.1. What is PHPMyadmin<A
+NAME="WHATIS-PHPMYADMIN2"
+></A
+></H2
+><P
+><A
+HREF="http://www.phpmyadmin.net/"
+TARGET="_top"
+>PHPMyAdmin</A
+> is n visual system for the management of a <A
+HREF="http://www.mysql.org"
+TARGET="_top"
+>MySQL</A
+> database. It is written in <A
+HREF="http://www.php.net"
+TARGET="_top"
+>PHP</A
+> and serves to display the contents of the databases on the server (or client) on which MySQL is installed. Through this interface you can create new databases, modify existing ones and modify the contents of single fields (see <A
+HREF="phpmyadmin2.html#FIG-MYADMIN1-COPY"
+>Figure 11-1</A
+>).</P
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-MYADMIN1-COPY"
+></A
+><P
+><B
+>Figure 11-1.    PHPMyAdmin start screen
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/myadmin1.png"><DIV
+CLASS="CAPTION"
+><P
+>PHPMyAdmin start screen</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="INSTALL-DB2"
+></A
+>11.3.2. How to install the PHP-Nuke DB with PHPMyadmin</H2
+><P
+>Please read first <A
+HREF="phpmyadmin.html#INSTALL-DB"
+>Section 5.2.2</A
+> for the basic installation procedure of the PHP-Nuke MySQL database through PHPMyAdmin. In this section we will discuss some more advanced PHPMyAdmin topics:</P
+><P
+>PHPMyAdmin gives you also the possibility to do a backup of the data in your database (or only of the structure). If you choose "Structure Only and the "Send" option, you will save on your PC the database structure without the data. Choosing "Structure and Data" instead, you will be sent a real whole backup of your DB.</P
+><DIV
+CLASS="SECT3"
+><H3
+CLASS="SECT3"
+><A
+NAME="AEN2721"
+></A
+>11.3.2.1. Other options of PHPMyAdmin</H3
+><P
+>Yet another couple of instructions: In order to see the structure of a table, you only need to click on the one that is marked in the left bar and you will see all its fields and modification options appear in the central part (<A
+HREF="phpmyadmin2.html#FIG-FORUM_TOPICS"
+>Figure 11-2</A
+>).</P
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-FORUM_TOPICS"
+></A
+><P
+><B
+>Figure 11-2.    PHPMyAdmin: table forum_topics
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/snapshot19.png"><DIV
+CLASS="CAPTION"
+><P
+>PHPMyAdmin: table forum_topics</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+><DIV
+CLASS="CAUTION"
+><P
+></P
+><TABLE
+CLASS="CAUTION"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/caution.gif"
+HSPACE="5"
+ALT="Caution"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>ATTENTION!</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The DROP command eliminates all the contents of the DB, the table or the single field, use it  with caution.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>Generally, the management interface of PHPMyAdmin is supplied by the provider who sells you the hosting or, if you install it on Windows in order to work locally, does not need any particular tweaking in its configuration.</P
+><P
+>In case you want to install it on Windows in order to read databases that are online or to install it on your webspace because your hosting supplier does not include it in your tools, you can configure everything by editing the config.inc.php file as follows:</P
+><P
+>Supposing that:</P
+><P
+></P
+><UL
+><LI
+><P
+>IP DB Server: 156.123.22.34</P
+></LI
+><LI
+><P
+>User: Pippo</P
+></LI
+><LI
+><P
+>Password: Topolino</P
+></LI
+><LI
+><P
+>Database Name: Minnie</P
+></LI
+></UL
+><P
+>Then:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>$cfgServers[1]["host"] = "156.123.22.34"; // MySQL hostname
+$cfgServers[1]["port"] = ""; // MySQL port - leave blank for default port
+$cfgServers[1]["adv_auth"] = false; // Use advanced authentication?
+$cfgServers[1]["stduser"] = ""; // MySQL standard user (only needed with advanced auth)
+$cfgServers[1]["stdpass"] = ""; // MySQL standard password (only needed with advanced auth)
+$cfgServers[1]["user"] = "Pippo"; // MySQL user (only needed with basic auth)
+$cfgServers[1]["password"] = "Topolino"; // MySQL password (only needed with basic auth)
+$cfgServers[1]["only_db"] = "Minnie"; // If set to a db-name, only this db is accessible
+$cfgServers[1]["verbose"] = ""; // Verbose name for this host - leave blank to show the hostname
+$cfgServers[1]["bookmarkdb"] = ""; // Bookmark db - leave blank for no bookmark support
+$cfgServers[1]["bookmarktable"] = ""; // Bookmark table - leave blank for no bookmark support</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>In the config.inc.php you will find more configuration parameters that are repeated. They serve to manage DBs in various hosts with the same interface.</P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="sql-syntax.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="mysql-frontend.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>The syntax of SQL code</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="tools.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>MySQL Front, how to administer a MySQL DB from Windows</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

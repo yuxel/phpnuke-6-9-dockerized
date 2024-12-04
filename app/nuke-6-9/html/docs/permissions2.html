@@ -1,0 +1,199 @@
+<HTML
+><HEAD
+><TITLE
+>The permissions on the folders and files</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Some security precautions "
+HREF="security.html"><LINK
+REL="PREVIOUS"
+TITLE="Some security precautions "
+HREF="security.html"><LINK
+REL="NEXT"
+TITLE="Cookies - timeout and configuration"
+HREF="cookies.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="security.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 10. Some security precautions</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="cookies.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="PERMISSIONS2"
+></A
+>10.1. The permissions on the folders and files</H1
+><P
+>This section is of importance only to those who use PHP-Nuke under Linux/Unix (this is true for the greater part of PHP-Nuke sites that are hosted by providers, and often also those who test locally use Linux).</P
+><P
+>Burzi says that the directories should be assigned a mode of 777, the files a mode of 666, but we may calmly let our PHP-Nuke do its work under more restrictive permissions, as illustrated below:</P
+><P
+></P
+><UL
+><LI
+><P
+>config.php (666)</P
+></LI
+><LI
+><P
+>backend.php (666)</P
+></LI
+><LI
+><P
+>ultramode.txt (666)</P
+></LI
+><LI
+><P
+>All directories (755)</P
+></LI
+><LI
+><P
+>Other files (644)</P
+></LI
+></UL
+><P
+>The files config.php, backend.php, ultramode.txt must have the write permissions because :</P
+><P
+></P
+><UL
+><LI
+><P
+>For config.php editing the preferences we will write this file modifying the text.</P
+></LI
+><LI
+><P
+>For the backend and ultramode on the other side, we will write them (in an automatic way) modifying the titles and abstracts of the news. </P
+></LI
+></UL
+><P
+>There is however something particular we have to take into account: if we use modules that upload files in some directories, their permissions wil have to be raised. As an example, consider the IndyNews module, a non standard module that makes it possible to enclose files and images in articles. The structure of the module is the following:</P
+><P
+></P
+><UL
+><LI
+><P
+>modules/indynews/media</P
+></LI
+></UL
+><P
+>In the inside of the "indynews" folder the permissions of the folder "media" would have to be 777, due to an override problem, the 777 permissions will have to be imposed on everything that is below "modules". For this reason, everything that resides in "modules" will be in 777 mode and this could cause a vulnerability. A solution is to move the folder that will have to accommodate the uploaded files to the outside of the modules folder, even to the document root, changing inside the module all the references to it.</P
+><P
+>Doing so will leave one single folder in root with permissions set to 777.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="security.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="cookies.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Some security precautions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="security.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Cookies - timeout and configuration</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

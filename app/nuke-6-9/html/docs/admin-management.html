@@ -1,0 +1,266 @@
+<HTML
+><HEAD
+><TITLE
+>Administration management </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Architecture and structure "
+HREF="architecture.html"><LINK
+REL="PREVIOUS"
+TITLE="Module management"
+HREF="module-management.html"><LINK
+REL="NEXT"
+TITLE="Customising PHP-Nuke themes "
+HREF="customization.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="module-management.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. Architecture and structure</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="customization.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="ADMIN-MANAGEMENT"
+></A
+>6.4. Administration management</H1
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Admin:</DT
+><DD
+><P
+>contains 4 subfolders (links, language, case, modules) that manage the various administration modules. The folder that contains the operating files is admin/modules, here we have the files that execute the different admin operations.</P
+></DD
+></DL
+></DIV
+><P
+>The folder admin/links instead says which admin module has to be called and puts a link in the admin area for that module.</P
+><P
+>Example (administration module for the FAQ):</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>if (($radminsuper==1) OR ($radminfaq==1)) {
+adminmenu("admin.php?op=FaqAdmin ", "" _FAQ." ", "faq.gif");
+}</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>This module:</P
+><P
+></P
+><UL
+><LI
+><P
+>Verifies that administration rights are present (this module may be managed by either the superadmin or an administrator that has been qualified to do so on the FAQ level),</P
+></LI
+><LI
+><P
+>passes a case (op=FaqAdmin) that says to the admin.php file (that includes all the admin modules) which module to load, associates a value in order to translate the term "faq" and associates an icon for the visual administration (faq.gif).</P
+></LI
+></UL
+><P
+>The folder admin/case instead serves to define which module to use in certain cases. This is important when, using the same admin file, one needs to carry out different operations according to the case passed:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>Case1 = insert
+Case2 = cancel
+etc...</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>In fact it says which module to load on verification of a case. For example, in the module faq the cases are many, let's consider only the last 2:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>case "FaqAdmin":
+case "FaqCatGo":
+include ("admin/modules/adminfaq.php");
+break;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>Both cases load the file adminfaq.php but they make it carry out different operations. The first one loads the file in the default scheme, the second one instead gives the O.K. for the insertion of a new category. This happens through a string like</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>admin.php?op=FaqAdmin </PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>in the first case and </P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>admin.php?op=FaqCatGo </PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>in the second.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="module-management.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="customization.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Module management</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="architecture.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Customising PHP-Nuke themes</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

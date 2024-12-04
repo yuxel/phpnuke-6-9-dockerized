@@ -1,0 +1,739 @@
+<HTML
+><HEAD
+><TITLE
+>The preinstalled modules</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Front end structure: user view"
+HREF="frontend.html"><LINK
+REL="PREVIOUS"
+TITLE="Front end structure: user view"
+HREF="frontend.html"><LINK
+REL="NEXT"
+TITLE="Other non-installed modules"
+HREF="non-installed-modules.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="frontend.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 3. Front end structure: user view</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="non-installed-modules.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="PREINSTALLED-MODULES"
+></A
+>3.1. The preinstalled modules</H1
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>news:</DT
+><DD
+><P
+>Born  as the heart of PHP-Nuke, it was the obligatory Home Page in previous versions. In the last versions it is instead possible to define which modules should appear as the default page. 
+The News module expands its branches on more pages. The first one we see is a collection of the latest News published (it is possible , from the configuration panel [admin-&#62;preferences] to choose the number of latest news to be displayed, say 5, 10, 15, 20, 25, 30). In the main page only a small initial text of the news article is published. If the text is too large, it will be possible to read it whole by pressing the link "Read more". 
+The article module has many elements that distinguish it from other ones. In the first place, the title, the topic, that is the main category and is usually characterized by an image that, if clicked, brings up a selection of the articles that belong to this topic. We have a second way to classify the articles, which is to assign them a category they are supposed to belong (see <A
+HREF="preinstalled-modules.html#FIG-CATEGORY"
+>Figure 3-2</A
+>) 
+
+<DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-CATEGORY"
+></A
+><P
+><B
+>Figure 3-2.    Classifying articles
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/category.png"><DIV
+CLASS="CAPTION"
+><P
+>Classifying articles</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></DD
+></DL
+></DIV
+><DIV
+CLASS="IMPORTANT"
+><P
+></P
+><TABLE
+CLASS="IMPORTANT"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/important.gif"
+HSPACE="5"
+ALT="Important"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>IMPORTANT</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This category is NOT a subcategory of topics, but rather a cross-sectional category that is completely independent from topics. Probably its most important function is to distinguish between "articles" and other admin-defined classes of news for which it will be possible to NOT be automatically published on the start page. "Articles" will always appear on the start news page.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>For example, imagine a portal that talks about soccer and it has 3 topics: </P
+><P
+></P
+><UL
+><LI
+><P
+>League A</P
+></LI
+><LI
+><P
+>League B</P
+></LI
+><LI
+><P
+>League C</P
+></LI
+></UL
+><P
+>We could think of cross-sectional categories like: </P
+><P
+></P
+><UL
+><LI
+><P
+>Championship</P
+></LI
+><LI
+><P
+>Champions League</P
+></LI
+><LI
+><P
+>Soccer player market </P
+></LI
+></UL
+><P
+>We can have an article that talks about League A/Championship, or of the Soccer player market League B. Clicking o topic, say League A, we will have a selection of all the articles that talk about League A, clicking on the category, Soccer player market, will have a selection of the articles that independently talk about soccer market that independently of the League being A, B or C. </P
+><P
+>At the bottom of the article we find more information about the article: who inserted it, when &#38; how many times it has been read etc.</P
+><DIV
+CLASS="IMPORTANT"
+><P
+></P
+><TABLE
+CLASS="IMPORTANT"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/important.gif"
+HSPACE="5"
+ALT="Important"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>The counter is incremented only if the "Read more" link has been clicked. The counter does not increment unless the user clicks "Read more".</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>It displays how many more bytes are still to be read, if there have been any comments on the article and what score has been given to the article by the readers. It is also possible to print the article in a printer-friendly format or you can send the link via e-mail to a friend.</P
+><P
+>Clicking on " Read all " brings us to the page that contains the entire article and the comments pertaining to it. In this page the user can read the entire article and interact with it through a multitude of operations.</P
+><P
+>He/She can cast a vote for the article, thus expressing a judgement on its validity, can comment on the article or answer to comments inserted from other users, can follow the links associated with this article, display it in a printer-friendly format and send the link via e-mail to a friend. You can also attach a survey to the article.</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+><A
+NAME="AVANTGO"
+></A
+>AvantGO:</DT
+><DD
+><P
+>It is  a very simplified version of the news archive, cretated mainly from the need to visit the page via a Palm Pilot. AvantGO is a system for archiving and visualizing the pages on palmtop screens due to the fact the Palm Pilot has a very small screen and has a low resolution (and even a low bandwidth connection) so they require simplified pages.</P
+></DD
+><DT
+>Downloads Module:</DT
+><DD
+><P
+>This module is deeply branched and manages a file archive (present on our own or a third party site) offering the user various modes of interaction (see <A
+HREF="preinstalled-modules.html#FIG-DOWNLOADS"
+>Figure 3-3</A
+>).
+
+<DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-DOWNLOADS"
+></A
+><P
+><B
+>Figure 3-3.    Downloads module
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/downloads.png"><DIV
+CLASS="CAPTION"
+><P
+>Downloads module</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></DD
+></DL
+></DIV
+><P
+>In the main page it is possible to use an internal search engine that searches for keywords among all the files cataloged. There is also the possibility to add external links to a file (these files will not be added immediately, but put in a waiting list until an administrator will approve them and they become visible). We can also base our selection on which files were downloaded most, or which ones obtained the highest score. On this page we can have a list of categories that accompany the files (there may exist subcategories but in <A
+HREF="preinstalled-modules.html#FIG-DOWNLOADS"
+>Figure 3-3</A
+> there is only 1 category, "Linux Downloads"), the user is recognized when he/she views the downloads section after their first visit so if new downloads have been added since the last visit, the corresponding category will be have a "new" icon beside it.</P
+><P
+>Once we have entered the desired section, we can download the files that interest us, cast a judgment vote, report a nonexistent link to the administrator or see more information regarding the author of the file.</P
+><P
+>The file list may be ordered by insertion date, judgment or popularityy (files downloaded most).</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Feedback:</DT
+><DD
+><P
+>Allows the user to send feedback and contact the webmaster of the site. The user just fills in the appropriate fields which are "Name", "E-Mail" and then the "Message Text". The system will then format an e-mail message that will arrive to the webmaster of the site.</P
+></DD
+><DT
+>Member List:</DT
+><DD
+><P
+>It displays all the users registered on the site. It is  possible to select the users on the basis of their basic information fields (name, nickname, personal homepage and e-mail address). It is  also possible to obtain a complete list of all the users and to order it by real name, e-mail address or homepage.</P
+></DD
+><DT
+>Private messages:</DT
+><DD
+><P
+>All the registered users have access to an internal messaging system, thus being able to exchange messages with each other. In the login box of each user the number of messages that are archived for this user will be displayed, and there is a management functionality allowing for replies or deletions (see <A
+HREF="preinstalled-modules.html#FIG-PRIVATE-MESSAGES"
+>Figure 3-4</A
+>).
+
+<DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-PRIVATE-MESSAGES"
+></A
+><P
+><B
+>Figure 3-4.    Private messages
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/private_messages.png"><DIV
+CLASS="CAPTION"
+><P
+>Private messages</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></DD
+></DL
+></DIV
+><P
+>The message that we compose has various parts:</P
+><P
+></P
+><UL
+><LI
+><P
+>The Recipient</P
+></LI
+><LI
+><P
+>The Subject </P
+></LI
+><LI
+><P
+>The animated icon that will accompany the subject of the message</P
+></LI
+><LI
+><P
+>The text that can be equipped with emoticons (emotional icons) and an aid for formatting the message in HTML adding Hyperlinks, emphasized words, bullet lists etc...</P
+></LI
+></UL
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Recommend Us:</DT
+><DD
+><P
+>This module is so you can send an e-mail to a friend recommending visiting our PHP-Nuke site. The message that will be sent to the friend must be configured by the administrator.</P
+></DD
+><DT
+>Book Reviews:</DT
+><DD
+><P
+>This module serves as an archive of product/services/site reviews. The book review must be inserted by the administrator but also from a user (a book review will need , in this case, be accepted by the administrator) who, after inserting a short description of the product then may express his judgment assigning a score to it. It is also possible to insert a descriptive image. The book reviews are cataloged in alphabetical order and the selection can be made based on starting letter.</P
+></DD
+><DT
+>Search Module:</DT
+><DD
+><P
+>It is the main search engine for PHP-Nuke, it does full text searches on articles, comments, sections, users and book reviews (see <A
+HREF="preinstalled-modules.html#FIG-SEARCH"
+>Figure 3-5</A
+>). It is  possible to make multiple searches (e.g.. an article of a certain category written by a certain author).
+
+<DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-SEARCH"
+></A
+><P
+><B
+>Figure 3-5.    Search module
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/search.png"><DIV
+CLASS="CAPTION"
+><P
+>Search module</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></DD
+><DT
+>Sections:</DT
+><DD
+><P
+>This module is a classification system like the topics. The articles inserted in this module do not appear in the news module, they can be displayed on more than one page and for this reason they are able to accommodate articles which are big in size. Every section can be associated with a different image. The article even provides a display system for printable pages.</P
+></DD
+><DT
+>Statistics:</DT
+><DD
+><P
+>The statistics module provides basic statistical information regarding use of the site. The information varies from the total number of displayed pages , to the type of browser and operating system used, up to the number of users that are registered, the version of PHP-Nuke used etc...(see <A
+HREF="preinstalled-modules.html#FIG-STATS"
+>Figure 3-6</A
+>)
+
+<DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-STATS"
+></A
+><P
+><B
+>Figure 3-6.    Statistics module
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/stats.png"><DIV
+CLASS="CAPTION"
+><P
+>Statistics module</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></DD
+><DT
+>Stories archive:</DT
+><DD
+><P
+>Archives all the articles by month enabling a chronological consultation. After having chosen the month, the corresponding articles are displayed with small flags besides them, visualizing the language they were written. Also in this plane it is possible to see the article in printable format and to send it to a friend. An inner search engine is  also comprised as well as the display of details regarding the article, such as:</P
+></DD
+></DL
+></DIV
+><P
+></P
+><UL
+><LI
+><P
+>number of comments </P
+></LI
+><LI
+><P
+>number of readings </P
+></LI
+><LI
+><P
+>score</P
+></LI
+></UL
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Submit news:</DT
+><DD
+><P
+>The users or the simple visitors of the site can propose to the administrator an article that will then be examined and, if approved, published. The users do not have all the possibility of classification that the administrator does, in fact they can only decide the article's title, the topic, the language and the text. They cannot classify it or choose if it should appear in the Home Page or not. And they can neither decide to publish it on a temporary basis.</P
+></DD
+><DT
+>Surveys:</DT
+><DD
+><P
+>Enables the administrator to create a survey that will later appear in a block or in the survey list. The users can vote on this survey (not more than once in 24 hours), and eventually comment. Moreover it is possible to display the list of the previous surveys and to consult their final results.</P
+></DD
+><DT
+>Top10:</DT
+><DD
+><P
+>It lists the top 10 active ones of all our portal.</P
+></DD
+></DL
+></DIV
+><P
+></P
+><UL
+><LI
+><P
+>10 most read articles</P
+></LI
+><LI
+><P
+>10 most commented articles</P
+></LI
+><LI
+><P
+>10 most active categories</P
+></LI
+><LI
+><P
+>10 most read articles in the special sections</P
+></LI
+><LI
+><P
+>10 most voted surveys</P
+></LI
+><LI
+><P
+>10 most active authors</P
+></LI
+><LI
+><P
+>10 most read book reviews</P
+></LI
+><LI
+><P
+>10most downloaded files</P
+></LI
+><LI
+><P
+>10 most read pages</P
+></LI
+></UL
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Topics:</DT
+><DD
+><P
+>Lists the main categories of PHP-Nuke. Once we have entered this module, we will be able, by clicking on the corresponding icon of the topic we are interested in, to carry out a selection of articles and in automatic mode, to see all the articles corresponding to this topic. We are also presented with a small search interface to finish our search in the chosen context.</P
+></DD
+><DT
+>WebLinks:</DT
+><DD
+><P
+>It is  a collection of web links. This module has the exact same functionality as the Download module so there is no need to explain it any more. </P
+></DD
+><DT
+>Your Account:</DT
+><DD
+><P
+>It's the administration console for your "User Profile" (It only works for registered users), the implemented functions are (see <A
+HREF="preinstalled-modules.html#FIG-YOUR-ACCOUNT"
+>Figure 3-7</A
+>):</P
+></DD
+></DL
+></DIV
+><P
+></P
+><UL
+><LI
+><P
+>It changes your info: enables management of your profile by changing your E-mail, Where you're from, AIM, ICQ, Avatar &#38; Fake E-mail etc...</P
+></LI
+><LI
+><P
+>It changes your Home: It creates a personalized menu (as a block) for navigation, the user can put in there whatever he wants (tests, links, images).</P
+></LI
+><LI
+><P
+>Setup comments: Configures the display of comments, assigning display criteria .</P
+></LI
+><LI
+><P
+>Theme selection: Changes the theme of the site, allowing you to choose between all available themes.</P
+></LI
+><LI
+><P
+>Logout/Exit: It lets us exit from our current user profile, cancelling the cookie.
+
+<DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-YOUR-ACCOUNT"
+></A
+><P
+><B
+>Figure 3-7.    Your account
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/your_account.png"><DIV
+CLASS="CAPTION"
+><P
+>Your account</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></LI
+></UL
+><P
+>We then have a main menu that informs us of how many and which comments we have inserted and how many stories we have published.</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Content:</DT
+><DD
+><P
+>It is  a module that lists all the categories (cross-sectional arguments to the topics, do you remember?), that lists, in the first instance all the present categories and once the category is selected, it lists all enclosed articles emphasizing the publication language.</P
+></DD
+><DT
+>Encyclopedia:</DT
+><DD
+><P
+>It is  a system for creating one or more word dictionaries. In the first selection scheme it requires you to enter the dictionary (displaying even a small flag that indicates the language), after the click we are invited to choose the letter that corresponds to the searched word or to use the inner search engine of the encyclopedia, once found it's enough to click on the word to discover its meaning.</P
+></DD
+><DT
+>FAQ:</DT
+><DD
+><P
+>It is  an archive of Questions/Answers divided by category that can be consulted by the user as a first solution to his problems. He can divide the Questions/Answers by category in order to facilitate the consultation.</P
+></DD
+><DT
+>FORUM:</DT
+><DD
+><P
+>In version 5,6 - 6.0 of PHP-Nuke the Splatt forum is present. We still do not know if it will be integrated in successive versions to Nuke. I suggest to use it anyway, since it is a mature application and has an italian support comunity. The functionality implemented in this forum (on the user side) are many (see <A
+HREF="preinstalled-modules.html#FIG-FORUM"
+>Figure 3-8</A
+>), the forums are divided by category, have a dedicated inner search engine, users can associate to every post (participation in the forum) icons relating to the argument, cast a vote on a discussion, see various icons according to the degree of attention degree that a specific discussion has generated, see how many questions and answers a certain thread has received, see the profile of that user and many other functions...
+
+<DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-FORUM"
+></A
+><P
+><B
+>Figure 3-8.    Forum
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/snapshot8.png"><DIV
+CLASS="CAPTION"
+><P
+>Forum</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="frontend.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="non-installed-modules.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Front end structure: user view</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="frontend.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Other non-installed modules</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

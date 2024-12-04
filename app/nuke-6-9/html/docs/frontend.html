@@ -1,0 +1,247 @@
+<HTML
+><HEAD
+><TITLE
+>Front end structure: user view</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Why use PHP-Nuke and not static HTML pages"
+HREF="whyphpnuke.html"><LINK
+REL="NEXT"
+TITLE="The preinstalled modules"
+HREF="preinstalled-modules.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="whyphpnuke.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="preinstalled-modules.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="FRONTEND"
+></A
+>Chapter 3. Front end structure: user view</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>3.1. <A
+HREF="preinstalled-modules.html"
+>The preinstalled modules</A
+></DT
+><DT
+>3.2. <A
+HREF="non-installed-modules.html"
+>Other non-installed modules</A
+></DT
+><DT
+>3.3. <A
+HREF="preinstalled-blocks.html"
+>The preinstalled blocks</A
+></DT
+></DL
+></DIV
+><P
+>In this chapter we will occupy ourselves, in detail, with all the functionalities implemented in PHP-Nuke, that is what our portal system can do and how. We will do this from the part of the visitor, imagining that we are the one who visits our site and uses its functionality. </P
+><P
+>We will analyze all the preinstalled modules in the PHP-Nuke  distribution and will give a look also at some very interesting modules that still have not been included in the official distribution. </P
+><P
+>Before starting, we should spend two words on how PHP-Nuke is structured; this system is structured as a 3 column portal, the two lateral ones including the blocks, the central one displaying the function modules. This does not mean to say that the structure of our site cannot be modified completely. The initial skeleton is, favorably, the one to start from in order to create a super personalized portal. Beyond the 3 columns mentioned we have also a header (top of page) and a footer (bottom of page). </P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Blocks:</DT
+><DD
+><P
+>they are present in the left/right columns of our portal<A
+NAME="AEN393"
+HREF="#FTN.AEN393"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+> and deliver functions that are repeated in all pages of the site (e.g. the menu, banner and login blocks).</P
+></DD
+><DT
+>Modules:</DT
+><DD
+><P
+>They are the heart of the page, they appear in the center column and each one has its own function. For example the news module delivers the articles, the search module makes an internal search of our site - they should be imagined as independent pages. They are the "heart" of the page that we visit (see <A
+HREF="frontend.html#FIG-HOMEPAGE"
+>Figure 3-1</A
+>). 
+
+<DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-HOMEPAGE"
+></A
+><P
+><B
+>Figure 3-1.    PHP-Nuke Homepage
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/homepage.png"><DIV
+CLASS="CAPTION"
+><P
+>PHP-Nuke Homepage</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+></DD
+></DL
+></DIV
+></DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN393"
+HREF="frontend.html#AEN393"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+>In fact, a way exists to personalize the visualization of the blocks based on the page in which they are displayed to us, for example, in module news we see both the left and the right block, in module search instead, we see only the blocks on the left. </P
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="whyphpnuke.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="preinstalled-modules.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Why use PHP-Nuke and not static HTML pages</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>The preinstalled modules</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,275 @@
+<HTML
+><HEAD
+><TITLE
+>The characteristics of the various types of blocks</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Creating blocks"
+HREF="blocks.html"><LINK
+REL="PREVIOUS"
+TITLE="Creating blocks"
+HREF="blocks.html"><LINK
+REL="NEXT"
+TITLE="How to create a new block"
+HREF="block-creation.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="blocks.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 8. Creating blocks</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="block-creation.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="BLOCK-TYPES"
+></A
+>8.1. The characteristics of the various types of blocks</H1
+><P
+>There are 3 different types of PHP-Nuke blocks:</P
+><P
+></P
+><UL
+><LI
+><P
+>RSS/RDF: They capture news that's available from other sites in standard reading format, i.e. text (For example the site <A
+HREF="www.spaghettibrain.com"
+TARGET="_top"
+>spaghettibrain</A
+> has a lot of news that are at other sites' disposal).</P
+></LI
+><LI
+><P
+>Blocks of contents: blocks in which we insert simple text or HTML text that will be then displayed inside the block (See following example)</P
+></LI
+><LI
+><P
+>Blocks of files: They are PHP scripts that execute fixed commands (see <A
+HREF="block-creation.html"
+>Section 8.2</A
+>)</P
+></LI
+></UL
+><P
+>In this paragraph we will see a simple example of how to insert the links and the text in a text block. If you already know a little HTML there is no point in following this example.</P
+><P
+>We suppose you want to insert a block with text and a link to 3 different sites:</P
+><P
+>The Webmaster who wrote this book manages the following sites:</P
+><P
+></P
+><UL
+><LI
+><P
+><A
+HREF="http://www.spaghettibrain.com"
+TARGET="_top"
+>spaghettibrain.com</A
+></P
+></LI
+><LI
+><P
+><A
+HREF="http://www.spaghettiopen.com"
+TARGET="_top"
+>spaghettiopen.com</A
+></P
+></LI
+><LI
+><P
+><A
+HREF="http://www.spaghettipython.com"
+TARGET="_top"
+>spaghettipython.com</A
+></P
+></LI
+></UL
+><P
+>The text will be formatted in this way in order to be inserted in the block (see <A
+HREF="block-types.html#FIG-BLOCK-EXAMPLE"
+>Figure 8-1</A
+>):</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;B&#62; webmaster &#60;/b&#62; who writes  this book manages the following sites: &#60;b &#62;&#60;br&#62;
+&#60;a href="http://www.spaghettibrain.com"&#62;spaghettibrain.com&#60;/a&#62;
+&#60;a href ="http://www.claudioerba.com"&#62;claudioerba.com&#60;/a&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+><DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-BLOCK-EXAMPLE"
+></A
+><P
+><B
+>Figure 8-1.    Block example
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/snapshot15.png"><DIV
+CLASS="CAPTION"
+><P
+>Block example</P
+></DIV
+></P
+></DIV
+></DIV
+></P
+><P
+>Some Small HTML lessons:</P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>&#60;b&#62;</DT
+><DD
+><P
+>It is for bold text, it opens a tag. All words that we write after this tag will be bold until &#60;/B&#62; (which closes the tag).</P
+></DD
+><DT
+>&#60;br&#62;</DT
+><DD
+><P
+>It is for a page break, it does not need to be closed.</P
+></DD
+><DT
+>&#60;ahref="http://siteyouwant.com"&#62;SiteName&#60;/a&#62;</DT
+><DD
+><P
+>is used to open the http://siteyouwant.com.</P
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="blocks.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="block-creation.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Creating blocks</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="blocks.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>How to create a new block</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

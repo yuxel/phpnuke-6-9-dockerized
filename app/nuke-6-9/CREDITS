@@ -1,0 +1,70 @@
+CREDITS for PHP-NUKE
+====================
+
+
+* PHP-Nuke
+Copyright (c) 2003 by Francisco Burzi
+http://phpnuke.org
+
+
+* Thatware
+Copyright (c) 2000 by David Norman
+http://thatware.org
+Note: PHP-Nuke was initialy based on Thatware.
+
+
+* System Icons
+Your Account Module Default Icons Copyright by Carles Carbonell Bernadó <mail@carlitus.net>
+WebMail Module Default Icons Copyright by Nikos - adni18 <adni18@skinbase.org>
+Odyssey Theme Icons Copyright by Jim Tackett <jtackett@cfl.rr.com>
+SunSet Theme Icons Copyright by Ana Baron <ap_baron@hotmail.com>
+Some Administration icons and others used in the system are copyright of:
+    - Jamie Poitra (aka Methnen) <methnen@mac.com>
+    - Hein Mevissen <themixer@mixthepix.com> (http://www.mixthepix.com)
+    - Le Sud Multimedia <contact@lesud.com> (http://www.lesud.com)
+Note: Thanks to the above artists who nicely gave permission to use their hard work!
+
+
+* Multilingual system
+Copyright (c) 2001 by John De Jonge aka Crocket
+http://www.webmasters.be
+Note: This allows to split up your site into different languages.
+
+
+* Multi Tier Admin
+Based on Multi Tier Admin addon
+Copyright (c) 2000 by Richard Tirtadji
+http://www.nukeaddon.com
+
+
+* Translations
+Thanks to all the people that translated PHP-Nuke, please see each
+translation file for credits.
+
+
+* PHP
+Just a few words to the people who developed PHP: Thanks folks you're the
+best! PHP is easy to install, extremely easy to learn and use. Perl Sucks!
+http://www.php.net
+
+
+* MySQL
+One of the best database software I've ever seen. Flexible and powerfull.
+Thanks!!! for releasing it under GPL!!!
+http://www.mysql.com
+
+
+* Apache
+What can I say? The best Web server software.
+http://www.apache.org
+
+
+* Linux
+This software was made thanks to my love for Linux.
+Linux is a registered trademark of Linus Torvalds
+
+
+* Additional Credits
+Please see each script file for respective credits and copyrights. PHP-Nuke
+doesn't include any script that isn't licensed under the GNU/GPL.
+Bug fixes have their credits in the fixed file as a comment inside the code.

@@ -1,0 +1,405 @@
+<HTML
+><HEAD
+><TITLE
+>How to create a new block</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Creating blocks"
+HREF="blocks.html"><LINK
+REL="PREVIOUS"
+TITLE="The characteristics of the various types of blocks"
+HREF="block-types.html"><LINK
+REL="NEXT"
+TITLE="Creating modules"
+HREF="creating-modules.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="block-types.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 8. Creating blocks</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="creating-modules.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="BLOCK-CREATION"
+></A
+>8.2. How to create a new block</H1
+><P
+>To create a block of the third type, i.e. a php script that interfaces with the database and extrapolates the data, first of all we have to understand how these blocks are structured. They are contained in a folder called blocks, the name of the block must be block-blockname.php. It is very important all blocks start with "block-" . Every block in which the name will start with block- will be included in the screen of the blocks that can be activated. We will find in the blocks administration menu all the available blocks in the file_name drop-down list. If not assigned by the administrator, the name will be the same that follows block- We can't use break spaces in a block name, they must be replaced by using underscore _ . All the blocks that will respect these rules will be inserted in the blocks admin menu.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1804"
+></A
+>8.2.1. How to create a block, theoretical approach:<A
+NAME="BLOCK-THEORY"
+></A
+></H2
+><P
+>You have to follow these rules when creating a block:</P
+><P
+></P
+><UL
+><LI
+><P
+>In every block you create you have to insert the following code at the beginning:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>if (eregi("block-Name_of_Block.php", $PHP_SELF)) {
+Header("Location: index.php");
+die();
+}</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>By using this code you protect the file avoiding users approaching it directly from the blocks folder, and the block will be displayed only when selected from your site. </P
+></LI
+><LI
+><P
+>In the blocks you can include everything you want, Perl, java, php, flash etc...</P
+></LI
+><LI
+><P
+>All the block output must have a value that can be obtained from the variable $content.</P
+></LI
+></UL
+><P
+>Remember that you have a limited amount of space in the block, pay special attention to the layout!</P
+><DIV
+CLASS="WARNING"
+><P
+></P
+><TABLE
+CLASS="WARNING"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/warning.gif"
+HSPACE="5"
+ALT="Warning"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>Warning</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>In order to have W3C standard compatible blocks, Francisco Burzi says:
+<A
+NAME="AEN1827"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><P
+>"To respect the W3c standards for HTML 4.01 Transitional, it is very important that you replace all "instances of &#38;" in the URL by the tag "&#38;amp; " </P
+></BLOCKQUOTE
+>For example the URL:
+<TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;a href="modules.php?op=modload&#38;name=FAQ&#38;file=index"&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+>must be written:
+<TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;a href="modules.php?op=modload&#38;amp;name=FAQ&#38;amp;file=index"&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+>and don't use, for example, the tag "li" (used to create a list), but leave that in the style sheet (CSS) which will make it for you.</P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>The background for the tables and font etc., are better left to the style sheet (CSS).</P
+><P
+>We will now see how to construct a block starting from the beginning.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="BLOCK-PRACTICE"
+></A
+>8.2.2. How to create a block, a practical example</H2
+><P
+>We will make a very simple block that shows the pages visited in our site the day before. We'll have a single query and a single value, in order to make things easier. Our block is called "hits", so the complete name of the block will be block-hits.php</P
+><P
+>First of all, we open the php tag</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;?php</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>Then we insert the protection script we've seen before:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>if (eregi("block-hits.php", $PHP_SELF)) {
+Header("Location: index.php");
+die();
+}</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>And now we insert the variables that we want to call (in this case the parameter $prefix and $dbi, which handles the database abstraction): </P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>global $prefix, $dbi;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>Now we continue inserting the query that reads from the database how many pages were seen in our site: (the instruction would be "read the first line value of the table nuke_counter in the cell count") </P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>$result = sql_query("select count from "$prefix."_counter order by type desc limit 0.1", $dbi);
+list($count) = sql_fetch_row($result, $dbi);</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>Finally, we pass the "$content" variable that will be echoed by the block and close the PHP tag: </P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>$content. = $count
+?&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>Our complete script will be :</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;?php
+if (eregi("block-hits,php", $PHP_SELF)) {
+Header("Location: index.php");
+die();
+}
+global $prefix, $dbi;
+$result = sql_query("select count from "$prefix."_counter order by type desc limit 0.1", $dbi);
+list($count) = sql_fetch_row($result, $dbi);
+$content. = $count
+?&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="block-types.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="creating-modules.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>The characteristics of the various types of blocks</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="blocks.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Creating modules</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

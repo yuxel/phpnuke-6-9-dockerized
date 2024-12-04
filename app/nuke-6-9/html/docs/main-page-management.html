@@ -1,0 +1,165 @@
+<HTML
+><HEAD
+><TITLE
+>Main page management</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Architecture and structure "
+HREF="architecture.html"><LINK
+REL="PREVIOUS"
+TITLE="Directory structure "
+HREF="directory-structure.html"><LINK
+REL="NEXT"
+TITLE="Module management"
+HREF="module-management.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="directory-structure.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 6. Architecture and structure</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="module-management.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="MAIN-PAGE-MANAGEMENT"
+></A
+>6.2. Main page management</H1
+><P
+>The file "index.php" is very simple one, it has the task to load the main PHP-Nuke page the module that was chosen as the default one to appear in the main page of our site.</P
+><P
+>Here in detail is what happens when the page "index.php" gets loaded:</P
+><P
+></P
+><UL
+><LI
+><P
+>the mainfile.php is included,</P
+></LI
+><LI
+><P
+>a database query is made in order to see which module was set up as the default one,</P
+></LI
+><LI
+><P
+>the origin of the visitor is checked (if he comes from a site that links us, this fact will be inserted in a table in the database).</P
+></LI
+></UL
+><P
+>Various checks are also made and error messages are defined in case the connection to the database fails. This avoids (in part) the error messages from the PHP preprocessor. Even if problems come up, the page will be presented in a standard design and the error message will be definable from the inside.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="directory-structure.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="module-management.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Directory structure</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="architecture.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Module management</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

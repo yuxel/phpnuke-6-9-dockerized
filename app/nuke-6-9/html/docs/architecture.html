@@ -1,0 +1,228 @@
+<HTML
+><HEAD
+><TITLE
+>Architecture and structure </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="How to install PHP-Nuke through PHPMyadmin"
+HREF="phpmyadmin.html"><LINK
+REL="NEXT"
+TITLE="Directory structure "
+HREF="directory-structure.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="phpmyadmin.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="directory-structure.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="ARCHITECTURE"
+></A
+>Chapter 6. Architecture and structure </H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>6.1. <A
+HREF="directory-structure.html"
+>Directory structure</A
+></DT
+><DT
+>6.2. <A
+HREF="main-page-management.html"
+>Main page management</A
+></DT
+><DT
+>6.3. <A
+HREF="module-management.html"
+>Module management</A
+></DT
+><DT
+>6.4. <A
+HREF="admin-management.html"
+>Administration management</A
+></DT
+></DL
+></DIV
+><P
+>The structure of PHP-Nuke is organized in to modules, all the files are managed by other files that are located in the PHP-Nuke root directory and include, according to the parameters passed to them, the intended module.</P
+><P
+>These tasks are carried out from only 3 pages:</P
+><P
+></P
+><UL
+><LI
+><P
+>index.php : In order to display the main page</P
+></LI
+><LI
+><P
+>modules.php : In order to include the internal modules.</P
+></LI
+><LI
+><P
+>admin.php : In order to include the administration interface.</P
+></LI
+></UL
+><P
+>It's not possible to call a module by calling a direct path to it. This is so in order to make installation easier, render the graphics management more independent (otherwise we would have to change the path of the images each time we position ourselves in an internal directory), have only a few files in the root directory and render the system more secure. </P
+><P
+>Everything is being called, as I said, through parameters (strings) passed to the "modules.php" file which specify which files are to be included. If for example we want to call the Topics module, the string to be passed should be <A
+HREF="http://www.yoursite.com/modules.php?name=Topics"
+TARGET="_top"
+>http://www.yoursite.com/modules.php?name=Topics</A
+></P
+><P
+>The command that is sent this way is "includes in the page created by modules.php the output of the file index.php that is found in the folder modules/Topics/".</P
+><P
+>The other files present in the PHP-Nuke root directory are:</P
+><P
+></P
+><UL
+><LI
+><P
+>auth.php: Manages authentication through the cookies.</P
+></LI
+><LI
+><P
+>mainfile.php: Contains all the necessary functions for the management of PHP-Nuke</P
+></LI
+><LI
+><P
+>header.php: manages the variables that are related to the header (inclusion of metatags, Javascript...)</P
+></LI
+><LI
+><P
+>footer.php: variables related to the footer.</P
+></LI
+><LI
+><P
+>backend.php: manages the output of the news that can be captured from other sites</P
+></LI
+><LI
+><P
+>ultramode.txt: ditto</P
+></LI
+><LI
+><P
+>robots.txt: contains instructions for the search engines informing them which folders not to index</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="phpmyadmin.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="directory-structure.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>How to install PHP-Nuke through PHPMyadmin</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Directory structure</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

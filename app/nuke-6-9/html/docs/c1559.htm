@@ -1,0 +1,469 @@
+<HTML
+><HEAD
+><TITLE
+>Customising PHP-Nuke themes </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="book1.htm"><LINK
+REL="PREVIOUS"
+TITLE="Administration management "
+HREF="x1526.htm"><LINK
+REL="NEXT"
+TITLE="Modifying the HTML template"
+HREF="x1704.htm"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x1526.htm"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x1704.htm"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="CUSTOMIZATION"
+></A
+>Chapter 7. Customising PHP-Nuke themes </H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="c1559.htm#TOPIC-STRUCTURE"
+>Structure of a PHP-Nuke theme</A
+></DT
+><DT
+><A
+HREF="x1704.htm"
+>Modifying the HTML template</A
+></DT
+><DT
+><A
+HREF="x1728.htm"
+>Theme construction: the rules to follow</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="TOPIC-STRUCTURE"
+></A
+>Structure of a PHP-Nuke theme</H1
+><P
+>Making your own personal graphical theme<A
+NAME="AEN1564"
+></A
+> for your site is very important so that you don't have another PHP-Nuke clone, if your site looks the same as other sites it dosn't make you, the Webmaster look very professional. Personalising the portal starts from the graphical side of things. Knowing how to put your hands on a PHP-Nuke theme means being able to play with all of the graphical elements that we can use. The example theme we will use in this chapter is the NukeNews theme, made by Francisco Burzi for PHP-Nuke. It's a theme composed of alot of HTML files included in theme.php. This is a very good solution that permits you to manage the graphical part of the theme through an editor like DreamWeaver using the least amount of PHP code.</P
+><P
+>The NukeNews theme is structured in this way:</P
+><P
+></P
+><UL
+><LI
+><P
+>theme.php<A
+NAME="AEN1570"
+></A
+>: It manages the main functions of the variables for the background colors.</P
+></LI
+><LI
+><P
+>tables.php<A
+NAME="AEN1574"
+></A
+>: it manages the functions opentable(); and closetable();</P
+></LI
+><LI
+><P
+>header.html<A
+NAME="AEN1578"
+></A
+>: It manages the header for your site</P
+></LI
+><LI
+><P
+>footer.html<A
+NAME="AEN1582"
+></A
+> It manages the footer for your site</P
+></LI
+><LI
+><P
+>blocks.html<A
+NAME="AEN1586"
+></A
+> It manages the blocks</P
+></LI
+><LI
+><P
+>center_right.html<A
+NAME="AEN1590"
+></A
+> Manages the outlay of the page.</P
+></LI
+><LI
+><P
+>center_left.html<A
+NAME="AEN1594"
+></A
+>Manages the layout of the page.</P
+></LI
+><LI
+><P
+>story_home.html<A
+NAME="AEN1598"
+></A
+>Manages the layout of the page.</P
+></LI
+><LI
+><P
+>story_page.html<A
+NAME="AEN1602"
+></A
+>Manages the layout of the page.</P
+></LI
+></UL
+><P
+>These files are included in the functions specified in theme.php We then have a style sheet called style.css (style/style.css) included in the header.html file in our theme folder. For convention, the style sheet must always be called style.css and must always be contained in one folder called &quot;style&quot; inside of our theme folder. The images generally are grouped in a folder called &quot;images&quot; that is always found in our themes folder. </P
+><P
+>The folder structure of the NukeNews topic will be : </P
+><P
+></P
+><UL
+><LI
+><P
+>themes/NukeNews<A
+NAME="AEN1609"
+></A
+></P
+></LI
+><LI
+><P
+>themes/NukeNews/style/<A
+NAME="AEN1613"
+></A
+></P
+></LI
+><LI
+><P
+>themes/NukeNews/images/<A
+NAME="AEN1617"
+></A
+></P
+></LI
+></UL
+><P
+>Always remember that case is important, you must respect the difference between UPPERCASE and lowercase for compatibility with any Unix systems. </P
+><P
+>The theme.php file is the heart of all PHP-Nuke's graphical management. </P
+><P
+>The HTML file inclusion does not happen in all kind's of themes, some programmers include all the HTML in the theme.php file, but including it separately, solves many problems such as HTML formatting, that would otherwise be included in the PHP code. It also gives us the possibility of editing all with a visual editor (WYSIWYG<A
+NAME="AEN1622"
+></A
+>). </P
+><P
+>The theme.php is the file that creates the managing functions of all of PHP-Nuke's components (header<A
+NAME="AEN1625"
+></A
+>, footer<A
+NAME="AEN1627"
+></A
+>, central parts, block...).</P
+><P
+>The themeheader()<A
+NAME="AEN1630"
+></A
+> function manages the site header. It is composed of various tables that form the heading, and sometimes also defines some elements of the body tag that are not included in the style sheet and the variables that are placed inside the included html files. </P
+><P
+></P
+><DIV
+CLASS="VARIABLELIST"
+><DL
+><DT
+>Example:</DT
+><DD
+><P
+>The variable &dollar;theuser is defined inside of the themeheader() function and is then recalled in the header.html file in a table: </P
+></DD
+></DL
+></DIV
+><P
+>Code in theme.php (that defines the &dollar;theuser variable)</P
+><PRE
+CLASS="SCREEN"
+>if ($username == "Anonymous") {
+$theuser = "&#38;nbsp;&#38;nbsp; &#60;a href=\"modules.php?name=Your_Account &#38;op=new_user\"&#62;Create an account";
+} else {
+$theuser = "&#38;nbsp;&#38;nbsp;Welcome $username!";
+}</PRE
+><P
+>Code in header.html (that visualises the &dollar;theuser variable)</P
+><PRE
+CLASS="SCREEN"
+>&#60;td width="15% "nowrap &#62;&#60; font class="content" color="#363636 " &#62;
+&#60;b&#62; $theuser &#60;/b&#62;&#60;/font&#62;&#60;/td&#62;</PRE
+><P
+>The themefooter()<A
+NAME="AEN1642"
+></A
+>; function manages the footer of our site.</P
+><P
+>It has some interesting elements we have to analyse:</P
+><P
+>First of all, it identifies if the visualised page has got the &dollar;index variable set equal to 1, in this case we will also insert the right blocks on our page, but if instead &dollar;index==0 then the right blocks will not appear on our page. </P
+><P
+>It then defines the footer messages (which are captured from config.php) and inserts all them in a variable that is recalled from the footer.html file. </P
+><P
+>The function themeindex()<A
+NAME="AEN1648"
+></A
+> manages the news in Home Page and formats them adding elements according to various cases using the function &quot;if&quot;. It also includes the story_home.htm file.</P
+><P
+>The function themearticle()<A
+NAME="AEN1651"
+></A
+> instead manages the internal news page (that we can see by pushing on &quot;Read more...&quot;; remember that the layout part in this case is managed including the story_page.htm file, but the blocks that must be included (i.e. the article's survey, correlated links etc.) are defined by the news module. </P
+><P
+>The function themesidebox()<A
+NAME="AEN1654"
+></A
+> instead manages the layout of the box that we create or that we find already made (see <A
+HREF="c1745.htm"
+>Chapter 8</A
+>), it too includes a file called blocks.htm that defines the style and the layout. </P
+><P
+>We have ignored an element of the file theme.php. These are the variables that format the text, some of them are inserted in css (the style sheet) but others are instead defined at the beginning of the theme.php file. </P
+><P
+>Let's see the variables from the NukeNews theme: </P
+><PRE
+CLASS="SCREEN"
+>$bgcolor1 = "# efefef";
+$bgcolor2 = "# cfcfbb";
+$bgcolor3 = "# efefef";
+$bgcolor4 = "# cfcfbb";
+$textcolor1 = "# 000000";
+$textcolor2 = "# 000000";</PRE
+><P
+>As you see the expression values of these variables are in decimal format. </P
+><P
+>Define your site colours<A
+NAME="AEN1662"
+></A
+> - &dollar;bgcolor2 is generally used for table edges as you can see in the function opentable(), &dollar;bgcolor1 is used for table background. The others two background variables use the same criteria. &dollar;textcolor1 and &dollar;textcolor2 are used to format the text colour. </P
+><P
+>Now we have to examine what is included in the tables.php file. This file creates 4 functions (opentable(); closetable(); opentable2(); closetable2();) that include HTML tags that open and close tables in a predefined way.</P
+><P
+>It is very easy to use when creating modules (see <A
+HREF="c1852.htm"
+>Chapter 9</A
+>) , you don't have to rewrite the HTML every time you want to create a table but it's enough with the following syntax:</P
+><PRE
+CLASS="SCREEN"
+>opentable();
+echo "Content of the table";
+closetable();</PRE
+><P
+>In this way you've created a table in a fast and effective way. But how is this function structured? We will examine first opentable(); then closetable();</P
+><DIV
+CLASS="NOTE"
+><BLOCKQUOTE
+CLASS="NOTE"
+><P
+><B
+>Please note: </B
+>These are php functions so you have to respect the HTML syntax inside php adding / before every " (ie align="left" must be written as align=\"left\") </P
+></BLOCKQUOTE
+></DIV
+><PRE
+CLASS="SCREEN"
+>function OpenTable() {
+global $bgcolor1, $bgcolor2;
+echo "&#60;table width=\"100% \" border=\"0 \ "cellspacing=\"1 \" cellpadding=\"0 \ "bgcolor=\"$bgcolor2 \" &#62;&#60; tr &#62;&#60; td &#62; \n ";
+echo "&#60; table width=\"100% \" border=\"0 \ "cellspacing=\"1 \" cellpadding=\"8 \ "bgcolor=\"$bgcolor1 \" &#62;&#60; tr &#62;&#60; td &#62; \n ";
+}</PRE
+><P
+>The syntax is very simple, isn't it? </P
+><P
+></P
+><UL
+><LI
+><P
+>The function is opened</P
+></LI
+><LI
+><P
+>Necessary variables are called (&dollar;bgcolor1, &dollar;bgcolor2) </P
+></LI
+><LI
+><P
+>We open a table 100&percnt; wide and we define the background colours for it</P
+></LI
+><LI
+><P
+>Open Line, Open Column</P
+></LI
+><LI
+><P
+>We insert a new table 100&percnt; wide (for the edges) </P
+></LI
+><LI
+><P
+>The width and height characteristics are defined.</P
+></LI
+><LI
+><P
+>line column</P
+></LI
+></UL
+><P
+>We stop on the column because it's here we will insert the table content (In fact opentable is where we start from to close this table!)</P
+><PRE
+CLASS="SCREEN"
+>function CloseTable() {
+echo "&#60;/td &#62;&#60;/tr &#62;&#60;/table &#62;&#60;/td &#62;&#60;/tr &#62;&#60;/table &#62; \n";
+}</PRE
+><P
+>In fact...</P
+><P
+></P
+><UL
+><LI
+><P
+>The function is opened</P
+></LI
+><LI
+><P
+>You close Column, You close Line</P
+></LI
+><LI
+><P
+>You close Inner Table</P
+></LI
+><LI
+><P
+>You close Column, You close Line</P
+></LI
+><LI
+><P
+>You close External Table</P
+></LI
+></UL
+><P
+>Its easy to construct HTML functions with PHP, isnt it?</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x1526.htm"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.htm"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x1704.htm"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Administration management</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Modifying the HTML template</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

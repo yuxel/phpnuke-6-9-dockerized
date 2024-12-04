@@ -2,10 +2,12 @@ services:
   php4:
     build:
       context: .
-      dockerfile: Dockerfile.alpine.arm64
+      dockerfile: Dockerfile.ubuntu
     restart: always
     ports:
       - 80:80
     volumes:
       - ./data:/usr/local/mysql/var
-      - ./app:/usr/local/apache2/htdocs
+      - ./app/nuke-6-9/html:/usr/local/apache2/htdocs
+      - ./app/nuke-6-9/sql:/tmp/sql
+      - ./script/:/tmp/script/

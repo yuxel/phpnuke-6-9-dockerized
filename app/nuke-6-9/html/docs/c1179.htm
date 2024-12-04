@@ -1,0 +1,353 @@
+<HTML
+><HEAD
+><TITLE
+>How to install PHP-Nuke</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="book1.htm"><LINK
+REL="PREVIOUS"
+TITLE="The Preferences Page "
+HREF="x1072.htm"><LINK
+REL="NEXT"
+TITLE="How to install PHP-Nuke through PHPMyadmin"
+HREF="x1241.htm"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x1072.htm"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x1241.htm"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="INSTALLATION"
+></A
+>Chapter 5. How to install PHP-Nuke</H1
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+><A
+HREF="c1179.htm#INSTALLATION-PROCESS"
+>Installation process</A
+></DT
+><DT
+><A
+HREF="x1241.htm"
+>How to install PHP-Nuke through PHPMyadmin</A
+></DT
+></DL
+></DIV
+><P
+>The screenshots regarding the installation<A
+NAME="AEN1182"
+></A
+> procedure, contrary to those of the other chapters, refer to the Windows platform. This is so in an effort to reduce the number of misunderstandings and ulterior help requests from the Windows community. (Judging from the feedback we receive, the Linux and FreeBSD community seem to be more able to deal with installation problems in this respect). </P
+><P
+>For the installation of <A
+HREF="http://www.php.net"
+TARGET="_top"
+>PHP</A
+>+ <A
+HREF="http://www.mysql.org"
+TARGET="_top"
+>MySQL</A
+>+ <A
+HREF="http://www.apache.org"
+TARGET="_top"
+>Apache</A
+>, <A
+HREF="http://www.phpmyadmin.net/"
+TARGET="_top"
+>PHPMyAdmin</A
+> etc. refer to <A
+HREF="c2221.htm"
+>Chapter 11</A
+> where you will find notes and links to useful tools in order to emulate PHP-Nuke on your client.</P
+><P
+>These instructions are valid for all PHP-Nuke versions up to 5,6, from 6 onwards the installation procedure will be much simpler.</P
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="INSTALLATION-PROCESS"
+></A
+>Installation process</H1
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN1193"
+></A
+>Download<A
+NAME="DOWNLOAD"
+></A
+></H2
+><P
+>Well... there is little to say here, it suffices to go to a site that holds the files and download them. There is only a small remark to make: if you use Windows and download<A
+NAME="AEN1197"
+></A
+> a version comprised of a file with the ending tar.gz, do not worry, your <A
+HREF="http://www.winzip.com"
+TARGET="_top"
+>Winzip</A
+> supports it without problems. Once downloaded, extract it and &quot;throw&quot; all its contents in a folder you created for this purpose and you call &quot;Nuke5&quot; or whatever ( sites from which you can download PHP-Nuke are: <A
+HREF="http://phpnuke.org"
+TARGET="_top"
+>phpnuke.org</A
+>, <A
+HREF="http://www.spaghettibrain.com"
+TARGET="_top"
+>www.spaghettibrain.com</A
+> etc.).</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="UPLOAD"
+></A
+>Upload through FTP</H2
+><P
+>Well, now what remains is just to upload the files to the interior of our main server directory that resides on our provider. </P
+><DIV
+CLASS="CAUTION"
+><P
+></P
+><TABLE
+CLASS="CAUTION"
+BORDER="1"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="CENTER"
+><B
+>Attention!</B
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+><P
+>It is highly recommended, prior to any installation steps, to verify that your provider supports <A
+HREF="http://www.php.net"
+TARGET="_top"
+>PHP</A
+> and  <A
+HREF="http://www.mysql.org"
+TARGET="_top"
+>MySQL</A
+>.</P
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="TIP"
+><BLOCKQUOTE
+CLASS="TIP"
+><P
+><B
+>Tip: </B
+>Don't upload all extracted  files. After extraction, you will find a structure similar to the one depicted in <A
+HREF="c1179.htm#FIG-FILE-STRUCTURE"
+>Figure 5-1</A
+>.
+
+<DIV
+CLASS="FIGURE"
+><A
+NAME="FIG-FILE-STRUCTURE"
+></A
+><P
+><B
+>Figure 5-1.    PHP-Nuke 6.0 file structure
+   </B
+></P
+><DIV
+CLASS="MEDIAOBJECT"
+><P
+><IMG
+SRC="./images/snapshot12.png"><DIV
+CLASS="CAPTION"
+><P
+>PHP-Nuke 6.0 file structure</P
+></DIV
+></P
+></DIV
+></DIV
+>
+
+You don't need to upload all the files from the folder, in the main directory of your web presence you will only need to upload the contents of the html folder (so just do a doubleclick on the html folder and upload everything that is inside it).</P
+></BLOCKQUOTE
+></DIV
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="PERMISSIONS"
+></A
+>Formulation of the file permissions</H2
+><DIV
+CLASS="IMPORTANT"
+><BLOCKQUOTE
+CLASS="IMPORTANT"
+><P
+><B
+>Important: </B
+>This process only really applies if your PHP-Nuke will be installed on a Linux/Unix server, if instead you will install it on Windows operating systems you don't have to do anything.</P
+></BLOCKQUOTE
+></DIV
+><P
+>Setting up permissions<A
+NAME="AEN1229"
+></A
+> on files serves the purpose of having them execute only certain operations (write, execute etc.) when called. Setting them up correctly is important for PHP-Nuke to operate in its full functionality. </P
+><P
+>The permissions to give are the following (for the base permissions, see <A
+HREF="c2099.htm#PERMISSIONS2"
+>the Section called <I
+>The permissions on the folders and files</I
+> in Chapter 10</A
+> in the context of security):</P
+><P
+></P
+><UL
+><LI
+><P
+>Files: 666 </P
+></LI
+><LI
+><P
+>Directories: 777</P
+></LI
+></UL
+><P
+>With <A
+HREF="http://www.ftpplanet.com/ftpresources/ftpmain.htm"
+TARGET="_top"
+>WS_FTP</A
+> you must select the files or folders on which you want to impose the permissions and, with the right mouse key, to select the option CHMOD.</P
+><P
+>Once you set up the permissions on all folders and all files, this procedure will cost you some time, but it is very important to carry out. Moreover, you will have to do it every time you insert a new file or module to your PHP-Nuke. </P
+></DIV
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x1072.htm"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="book1.htm"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x1241.htm"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>The Preferences Page</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>How to install PHP-Nuke through PHPMyadmin</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

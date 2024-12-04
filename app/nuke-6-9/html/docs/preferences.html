@@ -1,0 +1,323 @@
+<HTML
+><HEAD
+><TITLE
+>The Preferences Page </TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Back end structure: administrator view"
+HREF="backend.html"><LINK
+REL="PREVIOUS"
+TITLE="The administration functions"
+HREF="administration-functions.html"><LINK
+REL="NEXT"
+TITLE="How to install PHP-Nuke"
+HREF="installation.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="administration-functions.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 4. Back end structure: administrator view</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="installation.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="PREFERENCES"
+></A
+>4.2. The Preferences Page</H1
+><P
+>Here are the parameters needed for the configuration of the config.php file through the admin/preferences area:</P
+><P
+></P
+><UL
+><LI
+><P
+>Site name: It corresponds to the <A
+HREF="http://www.w3.org/TR/html4/struct/global.html#adef-title"
+TARGET="_top"
+>title</A
+> tag, it is what appears up in the right bar of the browser. It is  very important for the <A
+HREF="http://www.w3.org/TR/html4/appendix/notes.html#h-B.4"
+TARGET="_top"
+>search engines</A
+>.</P
+></LI
+><LI
+><P
+>Site URL: It is  the internet address of your site.</P
+></LI
+><LI
+><P
+>Logo: It is the logo of your site. In standard themes and themes not modified much it is the Logo that appears up on the left.</P
+></LI
+><LI
+><P
+>Slogan: It is equivalent to the <A
+HREF="http://www.w3.org/TR/html4/struct/global.html#edef-META"
+TARGET="_top"
+>description</A
+> tag, it's also very important for the <A
+HREF="http://www.w3.org/TR/html4/appendix/notes.html#h-B.4"
+TARGET="_top"
+>search engines</A
+>.</P
+></LI
+><LI
+><P
+>Beginning date of the site: It's the date that appears in the statistics module.</P
+></LI
+><LI
+><P
+>Administrator e-mail : it is the e-mail which will receive the notifications for article insertions by third parties and the mails from the "contact us" module.</P
+></LI
+><LI
+><P
+>Articles in Top Page: Specifies the number of news articles that can be displayed in the main page of the news module.</P
+></LI
+><LI
+><P
+>Articles in Home: Specifies the number of news articles that can be displayed in the home page of the site (if the news module is the main one).</P
+></LI
+><LI
+><P
+>Stories in old articles box: Specifies the number of news articles that can be displayed in the old articles box.</P
+></LI
+><LI
+><P
+>Activate ultramode: specifies if other sites can take news titles from our site.</P
+></LI
+><LI
+><P
+>Allow anonymous to post : Specifies whether anonymous users can write comments.</P
+></LI
+><LI
+><P
+>Default theme: defines the default theme of the site.</P
+></LI
+><LI
+><P
+>Select language: defines the default language of the site.</P
+></LI
+><LI
+><P
+>local time format: defines the format of the local time (Depends on the server, if it is running linux, this is controlled in <EM
+><A
+HREF="http://www.debian.org/doc/manuals/intro-i18n/ch-locale.en.html"
+TARGET="_top"
+>/usr/share/locale</A
+></EM
+>)</P
+></LI
+><LI
+><P
+>activate the multilanguage characteristics: choose whether the site should support a multilingual functionality or not</P
+></LI
+><LI
+><P
+>display the small flags in place of the list: if the multilingual option is activated then this decides whether the block should display the small state flags in place of a list of language names.</P
+></LI
+><LI
+><P
+>activate banners : sets up the option to use banner rotation on the site.</P
+></LI
+><LI
+><P
+>For the footer of the page, imagine we have to insert 3 texts in a table that is 100% wide and positioned centrally:</P
+><P
+></P
+><UL
+><LI
+><P
+>Page Footer Line 1: first text to insert</P
+></LI
+><LI
+><P
+>Page Footer Line 2: second text to insert</P
+></LI
+><LI
+><P
+>Page Footer Line 3: third text to insert</P
+></LI
+></UL
+></LI
+><LI
+><P
+>Backend title: The title that will appear in the file from which other sites get our newsfeed.</P
+></LI
+><LI
+><P
+>Backend language: language for the newsfeed file.</P
+></LI
+><LI
+><P
+>Notify new insertions via e-mail: It defines whether the administrator gets an e-mail when a user inserts a news article.</P
+></LI
+><LI
+><P
+>E-mail address to send the message: e-mail to which the notification message will be sent.</P
+></LI
+><LI
+><P
+>E-mail subject:</P
+></LI
+><LI
+><P
+>E-mail message: notification text (e.g. "you have received a new article").</P
+></LI
+><LI
+><P
+>E-mail account (From): who has sent the message.</P
+></LI
+><LI
+><P
+>Moderation type: chooses whether a moderation should be set up for the comments or not.</P
+></LI
+><LI
+><P
+>Comment limits in Bytes: sets up the maximum size for the comments.</P
+></LI
+><LI
+><P
+>Default anonymous user name: assigns a name to the persons who chose to remain unregistered.</P
+></LI
+><LI
+><P
+>Graphical administration menu: sets up whether to have icons or text in the administration area.</P
+></LI
+><LI
+><P
+>Minimal length for the user's password: for security reasons it is advisable to set up a rather long password.</P
+></LI
+><LI
+><P
+>Activate referring HTTP: whether statistics regarding the origin of the visits should be gathered.</P
+></LI
+><LI
+><P
+>How many referrers you want maximally: the maximum number of statistics pertaining to the origin of the visits (max 2000).</P
+></LI
+><LI
+><P
+>Activate comments in surveys: Whether comments are allowed in the surveys or not.</P
+></LI
+><LI
+><P
+>Activate comments in articles: Whether comments are allowed in the articles or not.</P
+></LI
+></UL
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="administration-functions.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="installation.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>The administration functions</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="backend.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>How to install PHP-Nuke</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

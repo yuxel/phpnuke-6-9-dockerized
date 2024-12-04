@@ -1,0 +1,302 @@
+<HTML
+><HEAD
+><TITLE
+>Cookies - timeout and configuration</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Some security precautions "
+HREF="security.html"><LINK
+REL="PREVIOUS"
+TITLE="The permissions on the folders and files"
+HREF="permissions2.html"><LINK
+REL="NEXT"
+TITLE="Programmer's tools "
+HREF="tools.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="permissions2.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 10. Some security precautions</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="tools.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="COOKIES"
+></A
+>10.2. Cookies - timeout and configuration</H1
+><P
+>PHP-Nuke makes heavy use of cookies, be it for user authentication, or admin authentication. The cookies are text files that are saved on our computers and contain various information that is read when we enter a certain site. In the case of PHP-Nuke the information saved there pertains to the user, the chosen theme and the language used. </P
+><P
+>The cookie is also the instrument that enables us not to have to retype the password each time we log in. This way, each time we access a PHP-Nuke site, the cookie works for us by managing the login operation.</P
+><P
+>The problem is that if the cookie does not have an expiry date low enough, someone can to steal it from us and be able to access the site as a user or administrator. This is possible for a series of reasons:</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>the cookie of PHP-Nuke has a life duration close to infinite (31536000 seconds)</P
+></LI
+><LI
+><P
+>Explorer (most used browser, unfortunately) has vulnerabilities that allow the execution of malicious scripts on the client that "steal" the cookie from the user and send it to the "burglar".</P
+></LI
+><LI
+><P
+>PHP-Nuke does not succeed in filtering all the malicious scripts (or, to put it better, Internet Explorer is so stupid that corrects inserted scripts with the wrong syntax in order not to be recognized).</P
+></LI
+></OL
+><P
+>Let's show a concrete example of how a script kiddie (those who hold themselves for hackers, but they are not...) can try to obtain administrator rights on our site:</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>The script kiddie inserts a script that supposedly contains news: </P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60; vb script give the cookie to me and send it to the server xyz&#62;</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>that is not filtered by the function check_words() of PHP-Nuke.</P
+></LI
+><LI
+><P
+>The administrator of PHP-Nuke opens the page up with Internet Explorer!!! (This hack does not work if you're using Mozilla, or better yet any Linux browser). The list of the news waiting to be approved for publishing is seen by the administrator. When he goes to look at the Submissions, Internet Explorer (stupidly) corrects the vbscript in this way: </P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>&#60;vbscript&#62;(script kiddies commands go here)</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>succeeding to interpret the wrong syntax in the correct way (!!!), taking the cookie and sending it to the script kiddie.</P
+></LI
+><LI
+><P
+>The script kiddie puts the cookie among the other ones of his own, connects to the site and... is recognized as being the administartor!!!</P
+></LI
+></OL
+><P
+>But how is it possible to protect ourselves from this type of hack?</P
+><P
+>There are some solutions that should increase much of the security for our administration area:</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>First of all STOP using Internet Explorer as a browser and pass the seat to <A
+HREF="http://www.mozilla.org"
+TARGET="_top"
+>Mozilla</A
+>. Mozilla is a browser that supports all sites in an optimal way and is not plagued by all the vulnerabilities of Microsoft. If you use Linux instead you won't encounter any problems of this sort...</P
+><P
+></P
+><OL
+TYPE="a"
+><LI
+><P
+>In case you want to continue to use the Explorer, you should at least download the patches from <A
+HREF="http://www.microsoft.com"
+TARGET="_top"
+>Microsoft</A
+>.</P
+></LI
+></OL
+></LI
+><LI
+><P
+>Disable, where possible, the insertion of HTML tags (for example in the forum of Splatt.it)</P
+></LI
+><LI
+><P
+>Narrow down the life of cookies. If for example we set up the life of the cookie to two hours, the script kiddie will be forced to use the cookie within that period, this limits much of their ability to act in time.</P
+><P
+>If instead we leave the life of the cookie to its preset value, the script kiddie may use our cookie even for 1 month after it was stolen.</P
+><P
+>How to set up the duration of the administartor cookie? The cookie is set up in the file includes/auth.php and the function to modify it is the following:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="90%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>if ((isset($aid)) &#38;&#38; (isset($pwd)) &#38;&#38; ($op == "login")) {
+    if($aid! = "" AND $pwd!="") {
+        $pwd = md5($pwd);
+        $result=sql_query("select pwd, admlanguage from "$prefix."_authors  where aid='$aid'", $dbi);
+        list($pass, $admlanguage)=sql_fetch_row($result, $dbi);
+        if($pass == $pwd) {
+            $admin = base64_encode("$aid:$pwd:$admlanguage");
+            setcookie("admin", "$admin",time()+7200);
+            unset($op);
+        }
+    }
+}</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>As you see we have modified the life duration of the second cookie from 2592000 (a month) to 7200 seconds (two hours). As you can easily see, we have reduced the action radius of the script kiddie down from one month to two hours.</P
+></LI
+><LI
+><P
+>A much more effective tag filter is in the study phase, although for the moment, the proposed solutions did give a definitive answer to the problem. The admissible tags are defined in in the file config.php in the variable $AllowableHTML, these are valid for the comments and the insertion of news in the function check_html() which for the moment lets some tags pass through.</P
+></LI
+></OL
+><P
+>All these actions and a correct configuration of the permissions as illustrated in <A
+HREF="permissions2.html"
+>Section 10.1</A
+> should guarantee us a good security for our site. It is also important to closely follow the security warnings for PHP-Nuke that are brought up on <A
+HREF="http://neworder.box.sk/"
+TARGET="_top"
+>http://neworder.box.sk/</A
+>.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="permissions2.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="tools.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>The permissions on the folders and files</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="security.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Programmer's tools</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

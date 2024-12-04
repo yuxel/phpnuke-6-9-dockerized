@@ -1,0 +1,228 @@
+<HTML
+><HEAD
+><TITLE
+>Creating fully compatible modules: the rules to follow</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.7"><LINK
+REL="HOME"
+TITLE="PHP-Nuke: Management and Programming"
+HREF="index.html"><LINK
+REL="UP"
+TITLE="Creating modules"
+HREF="creating-modules.html"><LINK
+REL="PREVIOUS"
+TITLE="Module structure "
+HREF="module-structure.html"><LINK
+REL="NEXT"
+TITLE="Module creation, the public part"
+HREF="module-public.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>PHP-Nuke: Management and Programming</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="module-structure.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Chapter 9. Creating modules</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="module-public.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="MODULE-RULES"
+></A
+>9.2. Creating fully compatible modules: the rules to follow</H1
+><P
+>For people who have a base knowledge of the PHP language it is very simple to construct a module. Generally to create a PHP-Nuke module means:</P
+><P
+></P
+><UL
+><LI
+><P
+>To create PHP files for the users, ie the public part of the site</P
+></LI
+><LI
+><P
+>To create an administrator interface </P
+></LI
+><LI
+><P
+>To verify that everything we have created is in keeping with the PHP-Nuke development rules.</P
+></LI
+></UL
+><P
+>But what about the development rules? </P
+><P
+>It is a good idea to stop on this point before continuing on to the programming part.</P
+><P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+>Rule: the modules must be included in the folder modules/namemodule in the public part and the folder admin/modules in the administration part</P
+></LI
+><LI
+><P
+>Rule: the main file of the module included in modules/nameofmodule must be called index.php</P
+></LI
+><LI
+><P
+>Rule: the tables in the php syntax are indicated by prefix. For example Nuke pages will be indicated with "$prefix."_pages, where $prefix takes the value from the config.php file which is nuke by default.</P
+></LI
+><LI
+><P
+>Rule: the location of the images or links must start from the root of your html directory and not from the folder modules/nameofmodule because the files contained in it are included in a file placed in html's root directory that's called modules.php</P
+></LI
+><LI
+><P
+>Rule: to manage the multilanguage function in an optimal way we have to create some text abstractions that we will insert in the files by making a folder called "language" inside the folder of the module. Everything will then be automatically recalled. For example, if we need to create a module that we call Topolino (the Italian name of Mickey Mouse) we must give the possibility to those who use the Italian interface to read "Topolino" and to those who use the English one to read "Mickey Mouse" ; -).</P
+></LI
+></OL
+><P
+>How do we do it?</P
+><P
+>First of all we create the folder "language" inside the folder modules/topolino We insert in this folder two php files that we will call lang-italian.php and lang-english.php We create an abstraction for topolino, in the lang-italian.php it will be: </P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>define("_TOPO", "Topolino");</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>And in English it will be:</P
+><TABLE
+BORDER="1"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><FONT
+COLOR="#000000"
+><PRE
+CLASS="SCREEN"
+>define("_TOPO", "Mickey Mouse");</PRE
+></FONT
+></TD
+></TR
+></TABLE
+><P
+>In this way inserting in the module the abstraction "_TOPO" this will be automatically replaced by Topolino in the Italian interface and by Mickey Mouse in the English interface.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="module-structure.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="module-public.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Module structure</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="creating-modules.html"
+ACCESSKEY="U"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Module creation, the public part</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>
