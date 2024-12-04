@@ -1,4 +1,4 @@
-# PHP-Nuke 9.6 Docker file
+# PHP-Nuke 6.9 Dockerized
 
 Inherited from - https://github.com/rodvlopes/php4-mysql4-apache2.2-docker 
 
